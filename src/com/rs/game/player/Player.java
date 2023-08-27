@@ -1617,9 +1617,9 @@ public class Player extends Entity {
 	public void vpnBlocked() {
 		interfaceManager.sendInterface(1225);
 		getPackets().sendIComponentText(1225, 5, "<col=ffff00>We have detected you are playing using a proxy or VPN.");
-		getPackets().sendIComponentText(1225, 21, "Due to a recent spike in rule breaking with the use of VPNs and proxies to connect to Matrix after being banned, we have disabled the use of VPNs and proxies." +
+		getPackets().sendIComponentText(1225, 21, "Due to a recent spike in rule breaking with the use of VPNs and proxies to connect to Gallifrey after being banned, we have disabled the use of VPNs and proxies." +
 				"<br><br>We ask for your patience and understanding at this time." +
-				"<br><br><br><col=ffff00>To continue playing Matrix, please disable your VPN.");
+				"<br><br><br><col=ffff00>To continue playing Gallifrey, please disable your VPN.");
 		//getPackets().sendIComponentText(1225, 22, "");
 		getPackets().sendHideIComponent(1225, 22, true);
 		getPackets().sendHideIComponent(1225, 19, true);

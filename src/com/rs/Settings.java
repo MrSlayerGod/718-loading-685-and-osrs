@@ -14,7 +14,7 @@ public final class Settings {
 	public static final String LATEST_UPDATE = "--Update 14--<br>"
 			+ "Easter bunny has come to Onyx! Don't forget to collect your eggs!<br>Osrs gameframe option has been added!<br>Jad Test Mode is now available!<br>Trivia has been updated!<br>Bug fixes & improvements!";
 	
-	public static final String SERVER_NAME = "Matrix";
+	public static final String SERVER_NAME = "Gallifrey";
 	public static final String CACHE_PATH = "data/cache/";
 	public static final String LOGIN_DATA_PATH = "data/login/";
 	public static final String DATA_PATH = "data/world/";
@@ -32,8 +32,8 @@ public final class Settings {
 	public static InetSocketAddress LOGIN_CLIENT_ADDRESS_BASE = new InetSocketAddress("127.0.0.1"/*LIVE_IP*/, 37778);
 
 	public static final WorldInformation[] WORLDS_INFORMATION = new WorldInformation[] {
-		new WorldInformation(1, 0, "World1", 0, 0x1 | 0x8, "Matrix", LIVE_IP, 0)
-		,new WorldInformation(2, 0, "BetaWorld1", 0, 0x1 | 0x8, "Matrix", LIVE_IP, 1)
+		new WorldInformation(1, 0, "World1", 0, 0x1 | 0x8, "Gallifrey", LIVE_IP, 0)
+		,new WorldInformation(2, 0, "BetaWorld1", 0, 0x1 | 0x8, "Gallifrey", LIVE_IP, 1)
 	};
 	
 	//disabled
@@ -113,6 +113,7 @@ public final class Settings {
 	public static int NPC_STANCE_OFFSET = 20000;
 	public static int OSRS_OBJECTS_OFFSET = 100000;
 	public static int[] OSRS_MAP_IDS = {
+			//end
 			13914, // fix lms map
 			4764, 6494, 6495, 6496, 6750, 6751, 6752, 6851, 7006, 7007, 7008, 7255, 7257, 7264, 7265, 7515, 7516, 7517, 7518, 7520, 7521, 7772, 7773, 7774, 7776, 7777, 8026, 8028, 8029, 8030, 8284, 8285, 8286, 8539, 8540, 8541, 8542, 8794, 8795, 8796, 8797, 8798, 9051, 9052, 9053, 9054, 9307, 9308, 9309, 9310, 9563, 9564, 9565, 9818, 9819, 9820, 9821, 9822, 10076, 10077, 10078, 10332, 10333, 10334, 12695, 12737, 13469, 13470, 13725, 13726, 14744, 15254, 15258, 15260, 15516, 15770, 15772,
 			//rev193
@@ -135,9 +136,9 @@ public final class Settings {
 			7512, 7768, 8855, 9823, 9824, 10335, 10336, 10591, 10592, 10846, 10847, 10848, 11102, 11103, 11104, 11358, 11359, 11360, 11616, 12126, 12127, 12636, 12637, 12638, 12639, 12640, 12738, 12893, 12894, 12993, 12994, 12995, 13149, 13150, 13250, 13252, 13405, 13406, 13408,
 			//181 song of elves
 			 7066, 7322, 7323, 7324, 7578, 7579, 7580, 14475, 14476, 14477, 14478, 14732, 14733, 14734,
-				//181
+			//181
 			4665, 4666, 4667, 4921, 4922, 4923, 4924, 5021, 5022, 5023, 5177, 5178, 5179, 5180, 5277, 5278, 5279, 5280, 5433, 5434, 5435, 5534, 5535, 5536, 10842,
- 14386,  23956, 23957, 23958, 23959, 23955, 23954, 23953, 23952, 23951, 23950, 23949, 4763, 7822, 8078, 8268, 12612, 12613, 13122, 13125, 13379, 14999, 15000, 23948, 14394, 9291, 14398, 14142, 9023, 9771, 9515, 9259, 6043, 6220, 6223, 6552, 6553, 6742, 6808, 6809, 6814, 6815, 7070, 7071, 7249, 7326, 7327, 7563, 7564, 7565, 7819, 7820, 7821, 8075, 8076, 8077, 8331, 8332, 8333, 9123, 11408, 12701, 12702, 12703, 12959, 14242, 14243, 13139, 13395, 14650, 14651, 14652, 14906, 14907, 14908, 15162, 15163, 15164, 14932, 15188, 11851, 12106, 9008, 8495, 8496, 8751, 9007, 12958, 12961, 9042, 4662, 4663, 4664, 4883, 4918, 4919, 4920, 5139, 5140, 5174, 5175, 5176, 5275, 5395, 5430, 5431, 5432, 5437, 5684, 5685, 5686, 5687, 5688, 5689, 5690, 5691, 5692, 5693, 5789, 5940, 5941, 5942, 5943, 5944, 5945, 5946, 5947, 5948, 5949, 5950, 6196, 6197, 6198, 6199, 6200, 6201, 6202, 6203, 6204, 6205, 6206, 6207, 6298, 6300, 6301, 6303, 6452, 6453, 6454, 6455, 6456, 6457, 6458, 6459, 6460, 6461, 6462, 6463, 6474, 6477, 6555, 6556, 6557, 6708, 6709, 6710, 6711, 6712, 6713, 6714, 6715, 6716, 6717, 6718, 6719, 6729, 6730, 6810, 6811, 6812, 6813, 6964, 6965, 6966, 6967, 6968, 6969, 6970, 6971, 6972, 6973, 6974, 6987, 7067, 7068, 7069, 7220, 7221, 7222, 7223, 7224, 7225, 7226, 7227, 7228, 7229, 7242, 7476, 7477, 7478, 7479, 7480, 7481, 7482, 7483, 7484, 7485, 7514, 7733, 7734, 7735, 7736, 7737, 7738, 7766, 7767, 7770, 7995, 7996, 7997, 7998, 8023, 8494, 8747, 8748, 8750, 8789, 9003, 9004, 9006, 9103, 9112, 9116, 9358, 9359, 9360, 9363, 9614, 9615, 9618, 9619, 9807, 9869, 9870, 9871, 9872, 10063, 10125, 10126, 10127, 10128, 10382, 10383, 10384, 10581, 10582, 10837, 11159, 11590, 11661, 11662, 11663, 11846, 11847, 11850, 11864, 12120, 12362, 12363, 12375, 12376, 12448, 12622, 13134, 13136, 13137, 13204, 13390, 13391, 13392, 13394, 13396, 13644, 13646, 13658, 13659, 13900, 13915, 14154, 14155, 14156, 14495, 14496, 14681, 14937, 15007, 15008, 15009, 15262, 15263, 15264};
+            14386,  23956, 23957, 23958, 23959, 23955, 23954, 23953, 23952, 23951, 23950, 23949, 4763, 7822, 8078, 8268, 12612, 12613, 13122, 13125, 13379, 14999, 15000, 23948, 14394, 9291, 14398, 14142, 9023, 9771, 9515, 9259, 6043, 6220, 6223, 6552, 6553, 6742, 6808, 6809, 6814, 6815, 7070, 7071, 7249, 7326, 7327, 7563, 7564, 7565, 7819, 7820, 7821, 8075, 8076, 8077, 8331, 8332, 8333, 9123, 11408, 12701, 12702, 12703, 12959, 14242, 14243, 13139, 13395, 14650, 14651, 14652, 14906, 14907, 14908, 15162, 15163, 15164, 14932, 15188, 11851, 12106, 9008, 8495, 8496, 8751, 9007, 12958, 12961, 9042, 4662, 4663, 4664, 4883, 4918, 4919, 4920, 5139, 5140, 5174, 5175, 5176, 5275, 5395, 5430, 5431, 5432, 5437, 5684, 5685, 5686, 5687, 5688, 5689, 5690, 5691, 5692, 5693, 5789, 5940, 5941, 5942, 5943, 5944, 5945, 5946, 5947, 5948, 5949, 5950, 6196, 6197, 6198, 6199, 6200, 6201, 6202, 6203, 6204, 6205, 6206, 6207, 6298, 6300, 6301, 6303, 6452, 6453, 6454, 6455, 6456, 6457, 6458, 6459, 6460, 6461, 6462, 6463, 6474, 6477, 6555, 6556, 6557, 6708, 6709, 6710, 6711, 6712, 6713, 6714, 6715, 6716, 6717, 6718, 6719, 6729, 6730, 6810, 6811, 6812, 6813, 6964, 6965, 6966, 6967, 6968, 6969, 6970, 6971, 6972, 6973, 6974, 6987, 7067, 7068, 7069, 7220, 7221, 7222, 7223, 7224, 7225, 7226, 7227, 7228, 7229, 7242, 7476, 7477, 7478, 7479, 7480, 7481, 7482, 7483, 7484, 7485, 7514, 7733, 7734, 7735, 7736, 7737, 7738, 7766, 7767, 7770, 7995, 7996, 7997, 7998, 8023, 8494, 8747, 8748, 8750, 8789, 9003, 9004, 9006, 9103, 9112, 9116, 9358, 9359, 9360, 9363, 9614, 9615, 9618, 9619, 9807, 9869, 9870, 9871, 9872, 10063, 10125, 10126, 10127, 10128, 10382, 10383, 10384, 10581, 10582, 10837, 11159, 11590, 11661, 11662, 11663, 11846, 11847, 11850, 11864, 12120, 12362, 12363, 12375, 12376, 12448, 12622, 13134, 13136, 13137, 13204, 13390, 13391, 13392, 13394, 13396, 13644, 13646, 13658, 13659, 13900, 13915, 14154, 14155, 14156, 14495, 14496, 14681, 14937, 15007, 15008, 15009, 15262, 15263, 15264};
 	
 	
 	public static final int PACKET_SIZE_LIMIT = 15000;
@@ -203,28 +204,28 @@ public final class Settings {
 	public static final BigInteger MODULUS = new BigInteger("b9da7ea6b932a829608c1ecc5ba428d592569d9ae7f5321d6f7d82cc9abb5353a582658145b47fdc2d85d564e9a6ebc0eddb14ac5556413d32b424eb8caa0e73a9fb61fbec755e359c8ecb97daa9847a205d3cbc2b5fef21ec9faa6c81ff25742ba1272588fb443e3ee667955ebc8cdec6026928faf93f0513ffa4bff0dfc129", 16);
 	public static final BigInteger PRIVATE_EXPONENT = new BigInteger("9c4f3e7bdc80d55bcf7ea99c786aad894a459cd21eca62f6ccc103d42f42e38713498333613bb8d9a653cc30ce2e7c534bf918ff03dac28dc4ea2baf0c242e77fb4c9e6f3fe70e5c8df083235730dbb7bb02f5f8d838f3ca504848022353b4e9509e184b8ffe475d585c43e067aa480a06e7818300d7a270bb2efa46dd78823d", 16);
 
-	public static final String WEB_API_LINK = "https://matrixrsps.io/auth.php";
-	public static final String HIGHSCORES_API_LINK = "https://matrixrsps.io/highscores/insert.php";
+	public static final String WEB_API_LINK = "https://Gallifrey.io/auth.php";
+	public static final String HIGHSCORES_API_LINK = "https://Gallifrey.io/highscores/insert.php";
 	
 
-	public static final String WEBSITE_LINK = "https://www.matrixrsps.io";
-	public static final String FORUMS_LINK = "https://www.matrixrsps.io/forums/";
+	public static final String WEBSITE_LINK = "https://www.Gallifrey.io";
+	public static final String FORUMS_LINK = "https://www.Gallifrey.io/forums/";
 	public static final String ITEMLIST_LINK = "https://www.mediafire.com/?znasre8sm11r2m9";
 	public static final String ITEMDB_LINK = "https://itemdb.biz/";
-	public static final String HIGHSCORES_LINK = "https://matrixrsps.io/hiscores/";
-	public static final String VOTE_LINK = "https://matrixrsps.io/vote/";
-	public static final String DONATE_LINK = "https://matrixrsps.io/forums/store/";
+	public static final String HIGHSCORES_LINK = "https://Gallifrey.io/hiscores/";
+	public static final String VOTE_LINK = "https://Gallifrey.io/vote/";
+	public static final String DONATE_LINK = "https://Gallifrey.io/forums/store/";
 
 	public static final String FACEBOOK_LINK = "https://www.facebook.com/onyxftw/";
 	public static final String DISCORD_LINK = "https://discord.gg/7fhC7948kN";
 	public static final String STORE_LINK = DONATE_LINK;
-	public static final String OFFENCES_LINK = "https://www.matrixrsps.io/site/index.php?page=offences";
-	public static final String EMAIL_LINK = "https://www.matrixrsps.io/site/index.php?page=change_email";
-	public static final String PASSWORD_LINK = "https://www.matrixrsps.io/site/index.php?page=change_password";
-	public static final String COMMANDS_LINK = "https://matrixrsps.io/forums/index.php?/topic/9-official-matrix-commands-list/";
-	public static final String SHOWTHREAD_LINK = "https://www.matrixrsps.io/forums/index.php?showtopic=";
-	public static final String WIKI_LINK = "https://matrixrsps.io";
-	public static final String HELP_LINK = "https://matrixrsps.io/forums/index.php?/topic/13-beginners-guide-to-matrix/";
+	public static final String OFFENCES_LINK = "https://www.Gallifrey.io/site/index.php?page=offences";
+	public static final String EMAIL_LINK = "https://www.Gallifrey.io/site/index.php?page=change_email";
+	public static final String PASSWORD_LINK = "https://www.Gallifrey.io/site/index.php?page=change_password";
+	public static final String COMMANDS_LINK = "https://Gallifrey.io/forums/index.php?/topic/9-official-matrix-commands-list/";
+	public static final String SHOWTHREAD_LINK = "https://www.Gallifrey.io/forums/index.php?showtopic=";
+	public static final String WIKI_LINK = "https://Gallifrey.io";
+	public static final String HELP_LINK = "https://Gallifrey.io/forums/index.php?/topic/13-beginners-guide-to-matrix/";
 
 	public static final int VOTE_MIN_AMOUNT = 190000;
 	public static final int VOTE_TOKENS_ITEM_ID = 6306;
