@@ -1,0 +1,85 @@
+package com.rs.game;
+
+import com.rs.game.player.Player;
+
+public class TemporaryAtributtes {
+
+	
+	public static void closeInterfaces(Player player) {
+		player.getTemporaryAttributtes().remove(Key.CHANGE_PASSWORD);
+		player.getTemporaryAttributtes().remove(Key.SEARCH_TELEPORT);
+		player.getTemporaryAttributtes().remove(Key.SEARCH_ITEM_DROP);
+		player.getTemporaryAttributtes().remove(Key.GAME_MODE);
+		player.getTemporaryAttributtes().remove(Key.JOIN_BOSS_INSTANCE);
+		player.getTemporaryAttributtes().remove(Key.MAKE_PRESET);
+		player.getTemporaryAttributtes().remove(Key.X_DIALOG);
+		player.getTemporaryAttributtes().remove(Key.X_DIALOG_INTERFACE);
+		player.getTemporaryAttributtes().remove(Key.WITHDRAW_PLATINUM_TOKEN);
+	}
+	
+	public static enum Key {
+		WITHDRAW_PLATINUM_TOKEN,
+		PARTY_ROOM_CHEST_DEPOSIT,
+		CHANGE_PASSWORD,
+		SEARCH_TELEPORT,
+		SEARCH_ITEM_DROP,
+		REVENEANT_IVULNERABILITY,
+		BANK_PIN,
+		PIN_TYPE,
+		BANK_TOTAL,
+		HARVEST_COUNT,
+		FORGE_TYPE,
+		FORGE_X,
+		RECOVERY_VERIFIED,
+		INFUSE_X,
+		INFUSE_ITEM,
+		DUNG_COMPLEXITY,
+		DUNG_FLOOR,
+		SERVANT_REQUEST_TYPE,
+		SERVANT_REQUEST_ITEM,
+		DUNGEON_REWARD_SLOT,
+		DUNGEON_INVITE,
+		DUNGEON_INVITED_BY,
+		GLUTTONOUS_HEALING,
+		FIEND_FLAGGED,
+		TOKASH_FROZEN_ADVENTURER,
+		UNHOLY_CURSEBEARER_ROT,
+		RAMMERNAUT_CHARGE,
+		SHADOW_FORGER_SHADOW,
+		CLAN_WARS_VIEW,
+		SELL_SPIRIT_SHARDS,
+		COSTUME_COLOR_CUSTOMIZE,
+		LOYALTY_TAB,
+		LOYALTY_IDX,
+		JEWLERY_SMITH_COMP,
+		PREVIOUS_RULES,
+		TRADE_COIN_WITHDRAWL,
+		DUEL_COIN_WITHDRAWL,
+		QUEST_TAB_OPEN,
+		PURCHASE_TOKEN_AMOUNT,
+		SHADOW_SILK_CD,
+		LOOTING_BAG,
+		EVIL_TREE_DAMAGE,
+		ZALCANO_TEPHRA_DAMAGE,
+		ZALCANO_MINING_DAMAGE,
+		ZALCANO_DAMAGE_BUFF,
+		SET_LEVEL_TARGET,
+		SET_XP_TARGET,
+		REFERRAL_NAME,
+		REFERRAL_TYPE,
+		GAME_MODE,
+		JOIN_BOSS_INSTANCE,
+		QUEST_JOURNALS_PAGE,
+		MAKE_PRESET,
+		SHUFFLE_PRAYERS,
+		BIG_PARATISE,
+		SPORE_INFECTED,
+        X_DIALOG,
+		X_DIALOG_INTERFACE,
+		GAME_SETTINGS_PAGE,
+		SEARCH_NPC_DROP,
+		SPAWN_ITEM,
+		GAMBLING,
+		GAMBLING_AMOUNT;
+    }
+}

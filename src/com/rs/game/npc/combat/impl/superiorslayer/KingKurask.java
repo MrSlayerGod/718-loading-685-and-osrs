@@ -1,0 +1,32 @@
+package com.rs.game.npc.combat.impl.superiorslayer;
+
+import com.rs.game.Hit;
+import com.rs.game.WorldTile;
+import com.rs.game.npc.NPC;
+import com.rs.game.player.Player;
+import com.rs.game.player.content.Combat;
+
+@SuppressWarnings("serial")
+public class KingKurask extends NPC {
+	public static final int ID = 27405;
+
+	public KingKurask(int id, WorldTile tile, int mapAreaNameHash, boolean canBeAttackFromOutOfArea) {
+		super(id, tile, mapAreaNameHash, canBeAttackFromOutOfArea);
+	}
+
+	@Override
+	public void handleIngoingHit(Hit hit) {
+		if (hit.getSource() instanceof Player) {
+			Player player = (Player) hit.getSource();
+			if (!(player.getEquipment().getWeaponId() == 50727 || player.getEquipment().getWeaponId() == 13290 || player.getEquipment().getWeaponId() == 4158) && !(player.getCombatDefinitions().getType() == Combat.RANGE_TYPE && (player.getEquipment().getAmmoId() == 13280 || player.getEquipment().getAmmoId() == 4160)))
+				hit.setDamage(0);
+			if (player.getEquipment().getWeaponId() == 50727)
+				hit.setDamage((int) (hit.getDamage()*1.175));
+		}
+		super.handleIngoingHit(hit);
+	}
+
+
+	/* empty for combat def auto init */
+	public KingKurask() { }
+}

@@ -1,0 +1,19 @@
+/bin.zip
+# ignore map files
+/customMaps/*
+# ignore map files
+/model/*
+# ignore all extra utilities
+/extra/*
+# ignore all vm crash logs
+hs_err_pid*
+# ignore all future .idea updates
+/.idea/*
+/cacheBackup/*
+.settings/
+.idea/
+
+bin/
+
+.classpath
+.project

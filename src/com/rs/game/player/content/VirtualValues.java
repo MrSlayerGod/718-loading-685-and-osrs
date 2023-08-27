@@ -1,0 +1,452 @@
+package com.rs.game.player.content;
+
+import com.rs.Settings;
+import com.rs.game.player.content.grandExchange.GrandExchange;
+
+public class VirtualValues {
+
+	public static void setValues() {
+		//Lucky Armadyl godsword
+		GrandExchange.setPrice(23679, GrandExchange.getPrice(11694));
+		//Lucky Bandos godsword
+		GrandExchange.setPrice(23680, GrandExchange.getPrice(11696));
+		//Lucky Saradomin godsword
+		GrandExchange.setPrice(23681, GrandExchange.getPrice(11698));
+		//Lucky Zamorak godsword
+		GrandExchange.setPrice(23682, GrandExchange.getPrice(11700));
+
+		//Lucky Zamorakian spear
+		GrandExchange.setPrice(23683, GrandExchange.getPrice(11716));
+
+		//Lucky Armadyl helmet
+		GrandExchange.setPrice(23684, GrandExchange.getPrice(11718));
+		//Lucky Armadyl chestplate
+		GrandExchange.setPrice(23685, GrandExchange.getPrice(11720));
+		//Lucky Armadyl chainskirt
+		GrandExchange.setPrice(23686, GrandExchange.getPrice(11722));
+
+		//Lucky Bandos chestplate
+		GrandExchange.setPrice(23687, GrandExchange.getPrice(11724));
+		//Lucky Bandos tassets
+		GrandExchange.setPrice(23688, GrandExchange.getPrice(11726));
+		//Lucky Bandos boots
+		GrandExchange.setPrice(23689, GrandExchange.getPrice(11728));
+
+		//Lucky Saradomin sword
+		GrandExchange.setPrice(23690, GrandExchange.getPrice(11730));
+
+		//Lucky abyssal whip
+		GrandExchange.setPrice(23691, GrandExchange.getPrice(4151));
+
+		//Lucky dragon full helm
+		GrandExchange.setPrice(23692, GrandExchange.getPrice(11335));
+		//Lucky dragon platebody
+		GrandExchange.setPrice(23693, GrandExchange.getPrice(14479));
+		//Lucky dragon chainbody
+		GrandExchange.setPrice(23694, GrandExchange.getPrice(3140));
+		//Lucky dragon claws
+		GrandExchange.setPrice(23695, GrandExchange.getPrice(14484));
+		//hallowed claws
+		GrandExchange.setPrice(25619, GrandExchange.getPrice(14484));
+		//dragonshredder claws
+		GrandExchange.setPrice(25633, GrandExchange.getPrice(14484));
+		//Lucky dragon 2h sword
+		GrandExchange.setPrice(23696, GrandExchange.getPrice(7158));
+
+		//Lucky arcane spirit shield
+		GrandExchange.setPrice(23697, GrandExchange.getPrice(13738));
+		//Lucky divine spirit shield
+		GrandExchange.setPrice(23698, GrandExchange.getPrice(13740));
+		//Lucky elysian spirit shield
+		GrandExchange.setPrice(23699, GrandExchange.getPrice(13742));
+		//Lucky spectral spirit shield
+		GrandExchange.setPrice(23700, GrandExchange.getPrice(13744));
+
+		//Fire cape
+		GrandExchange.setPrice(6570, 3500000);
+		//TokHaar-Kal
+		GrandExchange.setPrice(23659, 6000000);
+		//Nomad capes
+		GrandExchange.setPrice(15432, 65000);
+		GrandExchange.setPrice(15433, 65000);
+
+		//Abyssal vine whip
+		GrandExchange.setPrice(21371, GrandExchange.getPrice(4151) + GrandExchange.getPrice(21369));
+
+		//korasi
+		GrandExchange.setPrice(19784, 245000);
+
+		//Dragon fire shield
+		GrandExchange.setPrice(11283, GrandExchange.getPrice(11284));
+		GrandExchange.setPrice(52002, GrandExchange.getPrice(52003));
+
+		//chaotics
+		for (int id = 18349; id <= 18364; id++)
+			GrandExchange.setPrice(id, 20000001);
+
+		//arcane stream neck
+		GrandExchange.setPrice(18335, 3050000);
+
+		//zanik cbow
+		GrandExchange.setPrice(14684, GrandExchange.getPrice(9183));
+
+		GrandExchange.setPrice(Settings.VOTE_TOKENS_ITEM_ID, 3);
+
+	}
+
+	private static final long MINUTES = 60000, HOURS = 600000, DAYS = 14400000, WEEKS = 100800000;
+
+	public static enum VirtualStock {
+		/****
+		 * WEAPONS NEED LOW NUMBER BECAUSE NO ONE SHOULD BE GOING THROUGH THAT
+		 * MANY WEAPONS DAILY UNLESS THEYRE PKING AND IF THEY DO THEY CAN BUY
+		 * FROM OTHER PLAYERS
+		 ****/
+		/****
+		 * INCREASED STOCK TO 5 ON CERTAIN WEAPONS BECAUSE THERE WAS NEVER/ISNT
+		 * AN NPC THAT DROPS THE ITEM
+		 ****/
+		//BRONZE_SCIMITAR(1321, 5, HOURS * 1),
+		/*IRON_SCIMITAR(1323, 1, DAYS * 1),
+		RUNE_SCIMITAR(1333, 1, HOURS * 3),
+		DRAGON_SCIMITAR(4587, 2, HOURS * 10),
+		RUNE_LONGSWORD(13474, 1, HOURS * 3),
+		DRAGON_LONGSWORD(13475, 1, HOURS * 10),
+		RUNE_SWORD(13777, 2,  HOURS * 3),
+		BRACKISH_BLADE(20671, 2, HOURS * 10),
+		TOKTZ_XIL_AX(6523, 1, HOURS * 1),
+		RUNE_DAGGER(1213, 1, HOURS * 3),
+		DRAGON_DAGGER(1215, 1, HOURS * 10),
+		DRAGON_DAGGER_P(5680, 1, DAYS * 1),
+		DRAGON_DAGGER_S(5698, 1, DAYS * 2),
+		TOKTZ_XIL_EK(6525, 2, HOURS * 10),
+		RUNE_BATTLEAXE(1373, 1, HOURS * 3),
+		DRAGON_BATTLEAXE(1377, 1, DAYS * 1),
+		RUNE_MACE(1432, 1, HOURS * 5),
+		DRAGON_MACE(1434, 1, DAYS * 1),
+		TZHAAR_KET_EM(6527, 1, HOURS * 5),
+		RUNE_HALBERD(3202, 1, HOURS * 5),
+		DRAGON_HALBERD(3204, 2, DAYS * 1),
+		GRANITE_MAUL(4153, 1, DAYS * 3),
+		RUNE_SPEAR(1247, 1, HOURS * 5),
+		DRAGON_SPEAR(1249, 1, DAYS * 1),
+		RUNE_2H_SWORD(1319, 1, DAYS * 1),
+		DRAGON_2H_SWORD(7158, 1, WEEKS * 1),
+		TZHAAR_KET_OM(6528, 1, HOURS * 8),
+
+		//WEAPONS SHOP 2
+		ANCIENT_STAFF(4675, 5, DAYS * 1),
+		MASTER_WAND(6914, 5, DAYS * 1),
+		TOKTZ_MEJ_TAL(6526, 1, DAYS * 1),
+		YEW_SHORTBOW(857, 5, MINUTES * 30),
+		MAGIC_SHORTBOW(861, 3, HOURS * 1),
+		MAGIC_LONGBOW(859, 3, HOURS * 1),
+		RUNE_CROSSBOW(9185, 2, HOURS * 3),
+		HUNTERS_CROSSBOW(10156, 1, HOURS * 1),
+		RUNE_DART(811, 30, HOURS * 1),
+		DRAGON_DART(11230, 30, HOURS * 3),
+		RUNE_KNIFE(868, 30, HOURS * 1),
+		//MELEE ARMOR 1
+		BRONZE_BOOTS(4119, 1, HOURS * 1),
+		IRON_BOOTS(4121, 1, MINUTES * 40),
+		MITHRIL_BOOTS(4127, 1, MINUTES * 20),
+		RUNE_BOOTS(4131, 1, DAYS * 1),
+		DRAGON_BOOTS(11732, 1, WEEKS * 1),
+		IRON_FULL_HELM(1153, 1, MINUTES * 40),
+		IRON_PLATEBODY(1115, 1, MINUTES * 40),
+		IRON_PLATELEGS(1067, 1, MINUTES * 40),
+		IRON_KITESHIELD(1191, 1, MINUTES * 40),
+		RUNE_FULL_HELM(1163, 1, DAYS * 1),
+		RUNE_PLATEBODY(1127, 1, DAYS * 1),
+		RUNE_KITESHIELD(1201, 1, DAYS * 1),
+		ROCK_SHELL_HELM(6128, 2, DAYS * 1),
+		ROCK_SHELL_PLATE(6129, 2, DAYS * 1),
+		ROCK_SHELL_LEGS(6130, 2, DAYS * 1),
+		DRAGON_HELM(1149, 1, DAYS * 3),
+		GRANITE_BODY(10564, 2, WEEKS * 1),
+		DRAGON_SQ_SHIELD(1187, 2, WEEKS * 1),
+		DRAGON_PLATELEGS(4087, 1, DAYS * 3),
+		TOKTZ_KET_XIL(6524, 1, DAYS * 2),
+		INITIATE_SALLET(5574, 5, HOURS * 1),
+		INITIATE_HAUBERK(5575, 5, HOURS * 1),
+		INITIATE_CUISSE(5576, 5, HOURS * 1),
+		MONKS_ROBE2(544, 1, HOURS * 1),
+		MONKS_ROBE(542, 1, HOURS * 1),
+		ANTI_DRAGON_SHIELD(1540, 3, HOURS * 8),
+
+		//RANGED ARMOR
+		LEATHER_COWL(1167, 1, DAYS * 1),
+		LEATHER_CHAPS(1095, 1, DAYS * 1),
+		LEATHER_BODY(1129, 1, DAYS * 1),
+		HARDLEATHER_BODY(1131, 1, DAYS * 1),
+		LEATHER_VAMBRACES(1063, 1, DAYS * 1),
+		SNAKESKIN_BOOTS(6328, 1, DAYS * 1),
+		SNAKESKIN_BODY(6322, 1, DAYS * 1),
+		SNAKESKIN_CHAPS(6324, 1, DAYS * 1),
+		SNAKESKIN_VAMBRACES(6330, 1, DAYS * 1),
+		GREEN_DHIDE_VAMBRACES(1065, 1, DAYS * 1),
+		GREEN_DHIDE_CHAPS(1099, 1, DAYS * 1),
+		GREEN_DHIDE_BODY(1135, 1, DAYS * 1),
+		BLUE_DHIDE_VAMBRACES(2487, 1, DAYS * 1),
+		BLUE_DHIDE_CHAPS(2493, 1, DAYS * 1),
+		BLUE_DHIDE_BODY(2499, 1, DAYS * 1),
+		RED_DHIDE_VAMBRACES(2489, 1, DAYS * 1),
+		RED_DHIDE_CHAPS(2495, 1, DAYS * 1),
+		RED_DHIDE_BODY(2501, 1, DAYS * 1),
+		BLACK_DHIDE_VAMBRACES(2491, 1, DAYS * 1),
+		BLACK_DHIDE_CHAPS(2497, 1, DAYS * 1),
+		BLACK_DHIDE_BODY(2503, 1, DAYS * 1),
+		ROYAL_DHIDE_VAMBRACES(24376, 1, DAYS * 1),
+		ROYAL_DHIDE_CHAPS(24379, 1, DAYS * 1),
+		ROYAL_DHIDE_BODY(24382, 1, DAYS * 1),
+		AVAS_ACCUMULATOR(10499, 10, DAYS * 1),
+		AVAS_ALERTER(20688, 10, DAYS * 1),
+
+		//MAGIC ARMOR
+		GHOSTLY_HOOD(6109, 1, HOURS * 3),
+		GHOSTLY_ROBE2(6107, 1, HOURS * 3),
+		GHOSTLY_ROBE(6108, 1, HOURS * 3),
+		GHOSTLY_BOOTS(6106, 1, HOURS * 3),
+		GHOSTLY_GLOVES(6110, 1, HOURS * 3),
+		GHOSTLY_CLOAK(6111, 1, HOURS * 3),
+		MYSTIC_HAT(4090, 1, HOURS * 6),
+		MYSTIC_ROBE_TOP(4091, 1, HOURS * 6),
+		MYSTIC_ROBE_BOTTOM(4093, 1, HOURS * 6),
+		MYSTIC_BOOTS(4097, 1, HOURS * 6),
+		MYSTIC_GLOVES(4105, 1, HOURS * 6),
+		DAGONHAI_HAT(14499, 2, DAYS * 1),
+		DAGONHAI_ROBE_TOP(14732, 2, DAYS * 1),
+		DAGONHAI_ROBE_BOTTOM(14734, 2, DAYS * 1),
+		INFINITY_HAT(6918, 1, DAYS * 3),
+		INFINITY_TOP(6916, 1, DAYS * 3),
+		INFINITY_BOTTOMS(6924, 1, DAYS * 3),
+		INFINITY_BOOTS(6920, 1, DAYS * 3),
+		INFINITY_GLOVES(6922, 1, DAYS * 3),
+		MAGES_BOOK(6889, 1, DAYS * 2),
+		SPLITBARK_HELM(3385, 1, HOURS * 9),
+		SPLITBARK_BODY(3387, 1, HOURS * 9),
+		SPLITBARK_LEGS(3389, 1, HOURS * 9),
+		SPLITBARK_GAUNTLETS(3391, 1, HOURS * 9),
+		SPLITBARK_GREAVES(3393, 1, HOURS * 9),
+
+		//FOOD & POTIONS
+		SHARK(385, 50, WEEKS * 1),
+		MONKFISH(7946, 100, WEEKS * 1),
+		SWORDFISH(373, 200, WEEKS * 1),
+		LOBSTER(379, 300, WEEKS * 1),
+		COOKED_KARAMBWAN(3144, 50, WEEKS * 1),
+		
+		SUPER_STRENGTH_4(2440, 10, WEEKS * 1),
+		SUPER_ATTACK_4(2436, 10, WEEKS * 1),
+		RANGING_POTION_4(2444, 10, WEEKS * 1),
+		MAGIC_POTION_4(3040, 10, WEEKS * 1),
+		SARADOMIN_BREW_4(6685, 10, WEEKS * 1),
+		SUPER_RESTORE_4(3024, 10, WEEKS * 1),
+		PRAYER_POTION_4(2434, 10, WEEKS * 1),
+		PRAYER_RENEWAL_4(21630, 25, WEEKS * 1),
+		NITROGLYCERIN(703, 100, DAYS * 1),
+		CHEMICAL_COMPOUND(707, 100, DAYS * 1),
+
+		//RUNES
+		FIRE_RUNE(554, 500, DAYS * 1),
+		WATER_RUNE(555, 500, DAYS * 1),
+		AIR_RUNE(556, 500, DAYS * 1),
+		EARTH_RUNE(557, 500, DAYS * 1),
+		MIND_RUNE(558, 500, DAYS * 1),
+		BODY_RUNE(559, 500, DAYS * 1),
+		NATURE_RUNE(561, 500, DAYS * 1),
+		CHAOS_RUNE(562, 500, DAYS * 1),
+		LAW_RUNE(563, 500, DAYS * 1),
+		COSMIC_RUNE(564, 500, DAYS * 1),
+		SOUL_RUNE(566, 500, DAYS * 1),
+		BLOOD_RUNE(565, 500, DAYS * 1),
+		DEATH_RUNE(560, 500, DAYS * 1),
+		ASTRAL_RUNE(9075, 500, DAYS * 1),
+
+		//AMMO
+		BRONZE_ARROW(882, 100, DAYS * 1),
+		IRON_ARROW(884, 100, DAYS * 1),
+		STEEL_ARROW(886, 100, DAYS * 1),
+		MITHRIL_ARROW(888, 100, DAYS * 1),
+		ADAMANT_ARROW(890, 100, DAYS * 1),
+		RUNE_ARROW(892, 100, DAYS * 1),
+		DRAGON_ARROW(11212, 100, DAYS * 1),
+		SARADOMIN_ARROWS(19512, 100, DAYS * 1),
+		GUTHIX_ARROWS(19157, 100, DAYS * 1),
+		ZAMORAK_ARROWS(19612, 100, DAYS * 1),
+		BRONZE_BOLTS(877, 100, DAYS * 1),
+		IRON_BOLTS(9140, 100, DAYS * 1),
+		STEEL_BOLTS(9141, 100, DAYS * 1),
+		MITHRIL_BOLTS(9142, 100, DAYS * 1),
+		ADAMANT_BOLTS(9143, 100, DAYS * 1),
+		RUNITE_BOLTS(9144, 100, DAYS * 1),
+		RUBY_BOLTS_E(9242, 100, DAYS * 1),
+		DIAMOND_BOLTS_E(9243, 100, DAYS * 1),
+		DRAGON_BOLTS_E(9244, 100, DAYS * 1),
+		BOLT_RACK(4740, 100, DAYS * 1),
+		BOLAS(21365, 100, DAYS * 1),
+		SAGAIE_SHAFT(21353, 100, DAYS * 1),
+		SAGAIE(21364, 100, DAYS * 1),
+		LONG_KEBBIT_BOLTS(10159, 100, DAYS * 1),
+
+		//SUMMONING ITEMS
+		SPIRIT_TERRORBIRD_POUCH(12007, 10, DAYS * 3),
+		WAR_TORTISE_POUCH(12031, 10, DAYS * 3),
+		BUNYIP_POUCH(12029, 10, DAYS * 3),
+		UNICORN_STALLION_POUCH(12039, 10, DAYS * 3),
+		COMPOST_MOUND_POUCH(12091, 10, DAYS * 1),
+		STEEL_TITAN_POUCH(12790, 10, DAYS * 3),
+		IRON_TITAN_POUCH(12822, 10, DAYS * 3),
+		PACK_YAK_POUCH(12094, 10, DAYS * 3),
+
+		//CAPES
+		OBSIDIAN_CAPE(6568, 1, DAYS * 1),
+		TEAM_1_CAPE(4315, 10, DAYS * 1),
+		TEAM_2_CAPE(4317, 10, DAYS * 1),
+		ATTACK_CAPE_TRIM(9748, 10, DAYS * 1),
+		STRENGTH_CAPE_TRIM(9751, 10, DAYS * 1),
+		DEFENCE_CAPE_TRIM(9754, 10, DAYS * 1),
+		RANGING_CAPE_TRIM(9757, 10, DAYS * 1),
+		PRAYER_CAPE_TRIM(9760, 10, DAYS * 1),
+		MAGIC_CAPE_TRIM(9763, 10, DAYS * 1),
+		RUNECRAFT_CAPE_TRIM(9766, 10, DAYS * 1),
+		CONSTITUTION_CAPE_TRIM(9769, 10, DAYS * 1),
+		AGILITY_CAPE_TRIM(9772, 10, DAYS * 1),
+		HERBLORE_CAPE_TRIM(9775, 10, DAYS * 1),
+		THIEVING_CAPE_TRIM(9788, 10, DAYS * 1),
+		CRAFTING_CAPE_TRIM(9781, 10, DAYS * 1),
+		FLETCHING_CAPE_TRIM(9784, 10, DAYS * 1),
+		SLAYER_CAPE_TRIM(9787, 10, DAYS * 1),
+		CONSTRUCT_CAPE_TRIM(9790, 10, DAYS * 1),
+		MINING_CAPE_TRIM(9793, 10, DAYS * 1),
+		SMITHING_CAPE_TRIM(9796, 10, DAYS * 1),
+		FISHING_CAPE_TRIM(9799, 10, DAYS * 1),
+		COOKING_CAPE_TRIM(9802, 10, DAYS * 1),
+		FIREMAKING_CAPE_TRIM(9805, 10, DAYS * 1),
+		WOODCUT_CAPE_TRIM(9808, 10, DAYS * 1),
+		FARMING_CAPE_TRIM(9811, 10, DAYS * 1),
+		HUNTER_CAPE_TRIM(9949, 10, DAYS * 1),
+		SUMMONING_CAPE_TRIM(12170, 10, DAYS * 1),
+		DUNGEONEERING_CAPE_TRIM(18509, 10, DAYS * 1),
+		DUNGEONEERING_MASTER_CAPE_TRIM(19710, 10, DAYS * 1),
+		//JEWLERY
+		AMULET_OF_STRENGTH(1725, 1, DAYS * 1),
+		AMULET_OF_MAGIC(1727, 1, DAYS * 1),
+		AMULET_OF_POWER(1731, 1, DAYS * 1),
+		GAMES_NECKLACE_8(3853, 1, DAYS * 1),
+		SKILLS_NECKLACE_4(11105, 1, DAYS * 1),
+		RING_OF_DUELLING_8(2552, 1, DAYS * 1),
+		RING_OF_RECOIL(2550, 1, DAYS * 1),
+		RING_OF_LIFE(2570, 1, DAYS * 1),
+		RING_OF_WEALTH(2572, 1, DAYS * 1),
+		DRAKANS_MEDALLION(21576, 10, DAYS * 1),
+		AMULET_OF_GLORY_4(1712, 1, DAYS * 1),
+		CULINAROMANCERS_GLOVES_1(7453, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_2(7454, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_3(7455, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_4(7456, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_5(7457, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_6(7458, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_7(7459, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_8(7460, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_9(7461, 10, DAYS * 1),
+		CULINAROMANCERS_GLOVES_10(7462, 10, DAYS * 1),
+
+		//SKILLING STUFF 1
+		RUNE_PICKAXE(1275, 1, DAYS * 1),
+		DRAGON_PICKAXE(15259, 1, DAYS * 1),
+		PESTLE_AND_MORTAR(233, 5, DAYS * 1),
+		HAMMER(2347, 5, DAYS * 1),
+		CHISEL(1755, 5, DAYS * 1),
+		TINDERBOX(590, 5, DAYS * 1),
+		SAW(8794, 5, DAYS * 1),
+		
+		//SKILLING STUFF 2
+		FISHING_ROD(307, 1, DAYS * 1),
+		SMALL_FISHING_NET(303, 1, DAYS * 1),
+		BIG_FISHING_NET(305, 1, DAYS * 1),
+		FLY_FISHING_ROD(309, 1, DAYS * 1),
+		HARPOON(311, 1, DAYS * 1),
+		LOBSTER_POT(301, 1, DAYS * 1),
+		BARBARIAN_ROD(11323, 10, DAYS * 1),
+		NEEDLE(1733, 1, DAYS * 1),
+		RAKE(5341, 1, DAYS * 1),
+		SEED_DIBBER(5343, 1, DAYS * 1),
+		SPADE(952, 1, DAYS * 1),
+		GARDENING_TROWEL(5325, 1, DAYS * 1),
+		MAGIC_SECATEURS(7409, 10, DAYS * 1),
+		VIAL_OF_WATER(227, 100, DAYS * 1),
+
+		//HERBLORE SECONDARIES 1
+		EYE_OF_NEWT(221, 100, DAYS * 1),
+		REDBERRIES(1951, 100, DAYS * 1),
+		RED_BEAD(1470, 100, DAYS * 1),
+		CLEAN_SNAKE_WEED(1526, 100, DAYS * 1),
+		BEAR_FUR(948, 100, DAYS * 1),
+		LIMPWURT_ROOT(225, 100, DAYS * 1),
+		UNICORN_HORN_DUST(1237, 100, DAYS * 1),
+		ASHES(592, 100, DAYS * 1),
+		RED_SPIDERS_EGGS(223, 100, DAYS * 1),
+		GARLIC(1550, 100, DAYS * 1),
+		SILVER_DUST(7650, 100, DAYS * 1),
+		BLAMISH_SNAIL_SLIME(1581, 100, DAYS * 1),
+		CHOCOLATE_DUST(1975, 100, DAYS * 1),
+		SWAMP_TAR(1939, 100, DAYS * 1),
+		RUBIUM(12630, 100, DAYS * 1),
+		TOADS_LEGS(2152, 100, DAYS * 1),
+		GOAT_HORN_DUST(9736, 100, DAYS * 1),
+		PHARMAKOS_BERRIES(11807, 100, DAYS * 1),
+		SNAPE_GRASS(231, 100, DAYS * 1),
+		COCKATRICE_EGG(12109, 100, DAYS * 1),
+		FROG_SPAWN(5004, 100, DAYS * 1),
+		CHOPPED_ONION(1871, 100, DAYS * 1),
+		MORT_MYRE_FUNGUS(2970, 100, DAYS * 1),
+		SHRUNK_OGLEROOT(11205, 100, DAYS * 1),
+		KEBBIT_TEETH_DUST(10111, 100, DAYS * 1),
+		GORAK_CLAWS(9016, 100, DAYS * 1),
+		WIMPY_FEATHER(11525, 100, DAYS * 1),
+		DRAGON_SCALE_DUST(241, 100, DAYS * 1),
+		NAIL_BEAST_NAILS(10937, 100, DAYS * 1),
+
+		MORCHELLA_MUSHROOM(21622, 100, DAYS * 1),
+		WHITE_BERRIES(239, 100, DAYS * 1),
+		YEW_ROOTS(6049, 100, DAYS * 1),
+		WINE_OF_ZAMORAK(245, 100, DAYS * 1),
+		POTATO_CACTUS(3138, 100, DAYS * 1),
+		JANGERBERRIES(247, 100, DAYS * 1),
+		MAGIC_ROOTS(6051, 100, DAYS * 1),
+		BIRDS_NEST(5075, 100, DAYS * 1),
+		CRUSHED_NEST(6693, 100, DAYS * 1),
+		POISON_IVY_BERRIES(6018, 100, DAYS * 1),
+		PAPAYA_FRUIT(5972, 100, DAYS * 1)*/;
+
+		private int id, cap;
+		private long timer;
+
+		private VirtualStock(int id, int cap, long timer) {
+			this.id = id;
+			this.cap = cap;
+			this.timer = timer;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public int getCap() {
+			return cap;
+		}
+
+		public long getTimer() {
+			return timer;
+		}
+
+		public static VirtualStock forId(int id) {
+			for (VirtualStock stock : VirtualStock.values()) {
+				if (stock.getId() == id)
+					return stock;
+			}
+			return null;
+		}
+	}
+}
