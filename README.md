@@ -1,1 +1,7 @@
-# 718-loading-685-and-osrs
+<h1 tabindex="-1" dir="auto"><a id="user-content-lotica" class="anchor" aria-hidden="true" href="#lotica"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Gallifrey</h1>
+
+<img src="https://mcdn.wallpapersafari.com/medium/19/15/QOir4L.jpg" alt="2011scape Banner Screenshot Image - Plaer woodcutting maple trees." data-canonical-src="https://cdn.discordapp.com/attachments/1067274729205010463/1082144013475397702/image.png" style="max-width: 100%;">
+
+<img src="https://img.shields.io/badge/revision-718-important" alt="revision" data-canonical-src="https://img.shields.io/badge/revision-718-important" style="max-width: 100%;">
+
+<a href="https://discord.gg/uYfKGch5sT" rel="nofollow"><img src="https://img.shields.io/discord/757948032104005663" alt="discord-badge" data-canonical-src="https://img.shields.io/discord/1055304546521469019?color=%237289da&amp;logo=discord" style="max-width: 100%;"></a>
