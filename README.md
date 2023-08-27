@@ -2,4 +2,6 @@
 
 <img src="https://mcdn.wallpapersafari.com/medium/19/15/QOir4L.jpg" alt="2011scape Banner Screenshot Image - Plaer woodcutting maple trees." data-canonical-src="https://cdn.discordapp.com/attachments/1067274729205010463/1082144013475397702/image.png" style="max-width: 100%;">
 
+<img src="https://img.shields.io/badge/revision-718-important" alt="revision" data-canonical-src="https://img.shields.io/badge/revision-718-important" style="max-width: 100%;">
+
 <a href="https://discord.gg/uYfKGch5sT" rel="nofollow"><img src="https://img.shields.io/discord/757948032104005663" alt="discord-badge" data-canonical-src="https://img.shields.io/discord/1055304546521469019?color=%237289da&amp;logo=discord" style="max-width: 100%;"></a>
