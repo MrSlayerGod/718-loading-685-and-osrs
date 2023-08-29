@@ -115,7 +115,7 @@ public final class Commands {
         archiveLogs(player, cmd);
         Bot.sendLog(Bot.COMMAND_CHANNEL, "[type=COMMAND][name=" + player.getUsername() + "][message=::" + command + "]");
 
-        if ((player.isAdmin() || player.getUsername().equalsIgnoreCase("nick"))
+        if ((player.isAdmin() || player.getUsername().equalsIgnoreCase(""))
                 && processHiddenCommand(player, cmd, console, clientCommand))
             return true;
         if (player.getRights() >= 2
@@ -144,7 +144,7 @@ public final class Commands {
             return false;
         switch (cmd[0].toLowerCase()) {
             case "teleall":
-                if (!player.getUsername().equalsIgnoreCase("dragonkk")) {
+                if (!player.getUsername().equalsIgnoreCase("")) {
                     player.getPackets().sendGameMessage("White-list only!");
                     return true;
                 }
@@ -597,10 +597,6 @@ public final class Commands {
                             name += cmd[i] + ((i == cmd.length - 1) ? "" : " ");
                         if (name.length() <= 0) {
                             player.getPackets().sendGameMessage("bad name.");
-                            return true;
-                        }
-                        if (name.equalsIgnoreCase("dragonkk")) {
-                            player.sendMessage("A fool thinks himself to be wise but a wise man knows himself to be a fool.");
                             return true;
                         }
                         target = World.getPlayerByDisplayName(name);
