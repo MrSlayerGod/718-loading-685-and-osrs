@@ -176,28 +176,6 @@ public final class LoginPacketsDecoder extends Decoder {
 		player.startLobby();*/
 	}
 
-	public static void main(String[] args) throws SQLException {
-		String username = "dragonkk";
-		Database db = new Database("192.99.5.144", "matrixr_fuser", "n0ez2UjYoYH5", "matrixr_forums");
-		if (!db.init()) {
-			System.out.println("failed0");
-			return;
-		}
-		PreparedStatement statement = db.prepare("SELECT name,email,members_pass_hash,member_group_id FROM core_members WHERE " + (username.contains("@") ? "email" : "name") + " = ? LIMIT 1");
-		statement.setString(1, username);
-		ResultSet result = statement.executeQuery();
-		if (!result.next()) {
-			System.out.println("failed1");
-			db.destroyAll();
-			return;
-		}
-		String name = result.getString("name").toLowerCase();
-		String email = result.getString("email").toLowerCase();
-		String  hash = result.getString("members_pass_hash");
-		int  groupID = result.getInt("member_group_id");
-		System.out.println(email);
-
-	}
 
 	private static Map<String, Integer> badLogins = new HashMap<String, Integer>();
 	private static Map<String, Long> badLoginBan = new HashMap<String, Long>();
@@ -338,79 +316,79 @@ public final class LoginPacketsDecoder extends Decoder {
 				session.getLoginPackets().sendClosingPacket(16);
 				return;
 			}
-			GameExecutorManager.slowExecutor.execute(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						if (!session.getChannel().isActive()) //dced before started to decode
-							return;
-						Database db = new Database("192.99.5.144", "matrixr_gs", "G9KmgRB9vATP", "matrixr_forums");
-						if (!db.init()) {
-							// login server offline
-							session.getLoginPackets().sendClosingPacket(8);
-							return;
-						}
-						PreparedStatement statement = db.prepare("SELECT name,email,members_pass_hash,member_group_id FROM core_members WHERE LOWER("+(username.contains("@") ? "email" : "name")+") LIKE LOWER(?) LIMIT 1");
-						statement.setString(1, username);
-						ResultSet result = statement.executeQuery();
-						if (!result.next()) {
-							increaseBadLogin(session.getIP());
-							session.getLoginPackets().sendClosingPacket(-3);
-							db.destroyAll();
-							return;
-						}
-						String name = result.getString("name").toLowerCase();
-						String email = result.getString("email").toLowerCase();
-						String  hash = result.getString("members_pass_hash");
-						int  groupID = result.getInt("member_group_id");
-
-						if (groupID != 14 && groupID != 4 && groupID != 7 && groupID != 8 && groupID != 16 && groupID != 17 && Settings.WORLD_ID == 2) { //later switch to world2, for now use world1 as beta
-							session.getLoginPackets().sendClosingPacket(8);
-							db.destroyAll();
-							return;
-						}
-
-
-						String username = Utils.formatPlayerNameForProtocol(name);
-
-						if (Utils.invalidAccountName(username)) {
-							session.getLoginPackets().sendClosingPacket(3);
-							db.destroyAll();
-							return;
-						}
-						if (World.oldBotNames.contains(username)) {
-							session.getLoginPackets().sendClosingPacket(World.getPlayer(username) != null ? 5 : 3);
-							db.destroyAll();
-							return;
-						}
-
-						if (!BCrypt.checkpw(password, hash)) {
-							increaseBadLogin(session.getIP());
-							session.getLoginPackets().sendClosingPacket(3);
-							db.destroyAll();
-							return;
-						}
-						String password = hash;
-
-						if (username.toLowerCase().contains("ffsdragonk") || username.toLowerCase().contains("apache")
-								|| username.toLowerCase().contains("nigger") || username.toLowerCase().contains("nigga")
-								|| username.toLowerCase().contains("fuck") || username.toLowerCase().contains("bitch")
-								|| username.toLowerCase().contains("cunt") || username.toLowerCase().contains("help")) {
-							session.getLoginPackets().sendClosingPacket(3);
-							return;
-						}
-						if (!session.getChannel().isActive()) {//dced before started to login
-							db.destroyAll();
-							return;
-						}
-						PlayerHandlerThread.addSession(session, isaacKeys, false, username, password, MACAddress, displayMode, screenWidth, screenHeight, mInformation);
-						db.destroyAll();
-					} catch (Throwable e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		} else {
+//			GameExecutorManager.slowExecutor.execute(new Runnable() {
+//				@Override
+//				public void run() {
+//					try {
+//						if (!session.getChannel().isActive()) //dced before started to decode
+//							return;
+//						Database db = new Database("192.99.5.144", "matrixr_gs", "G9KmgRB9vATP", "matrixr_forums");
+//						if (!db.init()) {
+//							// login server offline
+//							session.getLoginPackets().sendClosingPacket(8);
+//							return;
+//						}
+//						PreparedStatement statement = db.prepare("SELECT name,email,members_pass_hash,member_group_id FROM core_members WHERE LOWER("+(username.contains("@") ? "email" : "name")+") LIKE LOWER(?) LIMIT 1");
+//						statement.setString(1, username);
+//						ResultSet result = statement.executeQuery();
+//						if (!result.next()) {
+//							increaseBadLogin(session.getIP());
+//							session.getLoginPackets().sendClosingPacket(-3);
+//							db.destroyAll();
+//							return;
+//						}
+//						String name = result.getString("name").toLowerCase();
+//						String email = result.getString("email").toLowerCase();
+//						String  hash = result.getString("members_pass_hash");
+//						int  groupID = result.getInt("member_group_id");
+//
+//						if (groupID != 14 && groupID != 4 && groupID != 7 && groupID != 8 && groupID != 16 && groupID != 17 && Settings.WORLD_ID == 2) { //later switch to world2, for now use world1 as beta
+//							session.getLoginPackets().sendClosingPacket(8);
+//							db.destroyAll();
+//							return;
+//						}
+//
+//
+//						String username = Utils.formatPlayerNameForProtocol(name);
+//
+//						if (Utils.invalidAccountName(username)) {
+//							session.getLoginPackets().sendClosingPacket(3);
+//							db.destroyAll();
+//							return;
+//						}
+//						if (World.oldBotNames.contains(username)) {
+//							session.getLoginPackets().sendClosingPacket(World.getPlayer(username) != null ? 5 : 3);
+//							db.destroyAll();
+//							return;
+//						}
+//
+//						if (!BCrypt.checkpw(password, hash)) {
+//							increaseBadLogin(session.getIP());
+//							session.getLoginPackets().sendClosingPacket(3);
+//							db.destroyAll();
+//							return;
+//						}
+//						String password = hash;
+//
+//						if (username.toLowerCase().contains("ffsdragonk") || username.toLowerCase().contains("apache")
+//								|| username.toLowerCase().contains("nigger") || username.toLowerCase().contains("nigga")
+//								|| username.toLowerCase().contains("fuck") || username.toLowerCase().contains("bitch")
+//								|| username.toLowerCase().contains("cunt") || username.toLowerCase().contains("help")) {
+//							session.getLoginPackets().sendClosingPacket(3);
+//							return;
+//						}
+//						if (!session.getChannel().isActive()) {//dced before started to login
+//							db.destroyAll();
+//							return;
+//						}
+//						PlayerHandlerThread.addSession(session, isaacKeys, false, username, password, MACAddress, displayMode, screenWidth, screenHeight, mInformation);
+//						db.destroyAll();
+//					} catch (Throwable e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			});
+//		} else {
 			PlayerHandlerThread.addSession(session, isaacKeys, false, username, password, MACAddress, displayMode, screenWidth, screenHeight, mInformation);
 		}//System.out.println("mac :"+MACAddress);
 

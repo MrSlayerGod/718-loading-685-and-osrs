@@ -14,7 +14,7 @@ public class MercenaryMage extends NPC {
 		setLureDelay(0);
 		setCapDamage(500);
 		setCombatLevel(65000);
-		setName("Dragonkk's #2 Boss");
+		setName("Castiels's #2 Boss");
 		setRun(true);
 		setForceMultiAttacked(true);
 		setForceAgressive(true);

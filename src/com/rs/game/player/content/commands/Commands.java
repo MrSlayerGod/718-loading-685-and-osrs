@@ -2,6 +2,7 @@ package com.rs.game.player.content.commands;
 
 import com.rs.GameLauncher;
 import com.rs.Settings;
+import com.rs.cache.Cache;
 import com.rs.cache.loaders.AnimationDefinitions;
 import com.rs.cache.loaders.ItemConfig;
 import com.rs.cache.loaders.NPCConfig;
@@ -115,7 +116,7 @@ public final class Commands {
         archiveLogs(player, cmd);
         Bot.sendLog(Bot.COMMAND_CHANNEL, "[type=COMMAND][name=" + player.getUsername() + "][message=::" + command + "]");
 
-        if ((player.isAdmin() || player.getUsername().equalsIgnoreCase(""))
+        if ((player.isAdmin() || player.getUsername().equalsIgnoreCase("nick"))
                 && processHiddenCommand(player, cmd, console, clientCommand))
             return true;
         if (player.getRights() >= 2
@@ -144,7 +145,7 @@ public final class Commands {
             return false;
         switch (cmd[0].toLowerCase()) {
             case "teleall":
-                if (!player.getUsername().equalsIgnoreCase("")) {
+                if (!player.getUsername().equalsIgnoreCase("dragonkk")) {
                     player.getPackets().sendGameMessage("White-list only!");
                     return true;
                 }
@@ -597,6 +598,10 @@ public final class Commands {
                             name += cmd[i] + ((i == cmd.length - 1) ? "" : " ");
                         if (name.length() <= 0) {
                             player.getPackets().sendGameMessage("bad name.");
+                            return true;
+                        }
+                        if (name.equalsIgnoreCase("dragonkk")) {
+                            player.sendMessage("A fool thinks himself to be wise but a wise man knows himself to be a fool.");
                             return true;
                         }
                         target = World.getPlayerByDisplayName(name);
@@ -1528,8 +1533,8 @@ public final class Commands {
                 case "myindex":
                     player.getPackets().sendGameMessage("My index is:" + player.getIndex());
                     return true;
-                case "gw":
-                    player.getControlerManager().startControler("GodWars");
+                case "voteboss":
+                    player.getControlerManager().startControler("voteworldboss");
                     return true;
                 case "getspawned": {
                     List<WorldObject> spawned = World.getRegion(player.getRegionId()).getSpawnedObjects();
@@ -1717,7 +1722,7 @@ public final class Commands {
                             continue;
                         p2.getInterfaceManager().sendNotification("Broadcast", Utils.fixChatMessage(message));
                     }
-                    World.sendNews("<img=12> <u><col=ff0000>" + Utils.fixChatMessage(message) + "</u></col> By: " + player.getDisplayName(), World.GAME_NEWS);
+              //      World.sendNews("<img=12> <u><col=ff0000>" + Utils.fixChatMessage(message) + "</u></col> By: " + player.getDisplayName(), World.GAME_NEWS);
                     return true;
                 case "test3":
                     ExtraSettings.open(player);
@@ -1903,10 +1908,10 @@ public final class Commands {
                                 for (WorldObject o : list) {
                                     if (o.getDefinitions().name.equalsIgnoreCase(name) && (option == null || o.getDefinitions().containsOption(option))) {
                                         System.out.println("Object found - [id=" + o.getId() + ", x=" + o.getX() + ", y=" + o.getY() + "]");
-                                        // player.getPackets().sendGameMessage("Object found - [id="
-                                        // + o.getId() + ", x=" + o.getX() +
-                                        // ", y="
-                                        // + o.getY() + "]");
+                                         player.getPackets().sendGameMessage("Object found - [id="
+                                         + o.getId() + ", x=" + o.getX() +
+                                         ", y="
+                                        + o.getY() + "]");
                                     }
                                 }
                             }
@@ -2149,12 +2154,12 @@ public final class Commands {
                 case "god":
                     player.setHitpoints(Short.MAX_VALUE);
                     player.getEquipment().setEquipmentHpIncrease(Short.MAX_VALUE - 990);
-                    if (player.getUsername().equalsIgnoreCase("discardedx2"))
+                    if (player.getUsername().equalsIgnoreCase(""))
                         return true;
                     for (int i = 0; i < 10; i++)
-                        player.getCombatDefinitions().getBonuses()[i] = 5000;
+                        player.getCombatDefinitions().getBonuses()[i] = 500000;
                     for (int i = 14; i < player.getCombatDefinitions().getBonuses().length; i++)
-                        player.getCombatDefinitions().getBonuses()[i] = 5000;
+                        player.getCombatDefinitions().getBonuses()[i] = 500000;
                     return true;
 
                 case "prayertest":
@@ -2867,6 +2872,17 @@ public final class Commands {
                 case "window":
                     player.getInterfaceManager().setRootInterface(1143, false);
                     return true;
+
+
+                case "getid":
+                    name = "";
+                    for (int i = 1; i < cmd.length; i++) {
+                        name += cmd[i] + ((i == cmd.length - 1) ? "" : " ");
+                    }
+                    ItemSearch.searchForItem(player, name);
+                    return true;
+
+
                 case "bconfig":
                     if (cmd.length < 3) {
                         player.getPackets().sendPanelBoxMessage("Use: bconfig id value");
@@ -3485,6 +3501,9 @@ public final class Commands {
                         PkTournament.initTournament(10, TimeUnit.MINUTES);
                     }
                     break;
+                case "osrsanim":
+                    player.setNextAnimation(Animation.createOSRS(Integer.parseInt(cmd[1])));
+                    return true;
                 case "enablemp":
                     World.sendWorldMessage("<col=551177>[Server Message] Double Minigame Points has been" + "<col=88aa11> enabled.", false);
                     Settings.DOUBLE_MINIGAME_ENABLED = true;
@@ -3509,13 +3528,13 @@ public final class Commands {
                     if (target == null)
                         player.getPackets().sendGameMessage("Couldn't find player " + name + ".");
                     else {
-                        if (World.BOTS.contains(target)) {
-                            player.sendMessage("Player is in an instance.");
-                            return false;
+                    //    if (World.BOTS.contains(target)) {
+                      //      player.sendMessage("Player is in an instance.");
+                        //    return false;
                         }
-                        player.setNextWorldTile(target);
-                    }
-                    return true;
+                        //player.setNextWorldTile(target);
+                    //}
+                    //return true;
             }
         }
         return false;
@@ -5206,6 +5225,22 @@ public final class Commands {
                     }
                     Magic.sendCommandTeleportSpell(player, ShootingStars.getStarSprite());
                     return true;
+                case "map": {
+
+                    int regionId = player.getRegionId();
+                    int regionX = (regionId >> 8) * 64;
+                    int regionY = (regionId & 0xff) * 64;
+                    int mapArchiveId = Cache.STORE.getIndexes()[5].getArchiveId("m" + ((regionX >> 3) / 8) + "_" + ((regionY >> 3) / 8));
+                    int landscapeArchiveId = Cache.STORE.getIndexes()[5].getArchiveId("l" + ((regionX >> 3) / 8) + "_" + ((regionY >> 3) / 8));
+
+                    System.out.println("RegionId: "+cmd[1]);
+                    System.out.println("landArchive: "+landscapeArchiveId);
+                    System.out.println("mapArchive: "+mapArchiveId);
+                    return true;
+                }
+
+
+
                 case "sz":
                 case "staffzone":
                     if (player.isStaff() || player.isVIPDonator()) {

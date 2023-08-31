@@ -41,7 +41,7 @@ public class Pack718Map {
         byte[] uobjectsData = osrsData.getIndexes()[5].getFile(ulandscapeArchiveID, 0, null);
 
         if (mapSettingsData == null || objectsData == null) {
-            //	System.out.println("OSRS map "+fromMapID+" data is null.");
+            	System.out.println("OSRS map "+fromMapID+" data is null.");
             return false;
         }
         if (toMapArchiveID == -1)
@@ -71,10 +71,10 @@ public class Pack718Map {
     public static void main(String[] args) throws IOException {
         Cache.init();
         osrsData = new Store(
-                "C:\\Users\\Alex\\Downloads\\cache (1)\\");
-        boolean rewrite = false;
-        rewrite |= packMap(12342, 12342, false);
-        rewrite |= packMap(12341, 12341, false);
+                "C:\\Users\\Gebruiker\\Desktop\\667\\");
+        boolean rewrite = false;//
+        rewrite |=  packMap(12598, 12598, false);
+     //   rewrite |= packMap(12342, 12342, false);
         if (rewrite) {
             Cache.STORE.getIndexes()[5].rewriteTable();
             System.out.println("Done");

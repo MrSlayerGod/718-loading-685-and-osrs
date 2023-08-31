@@ -17,7 +17,7 @@ public class GiantMimicCombat extends CombatScript {
     @Override
     public Object[] getKeys() {
         return new Object[]
-                {21230};
+                {28633};
     }
 
     @Override

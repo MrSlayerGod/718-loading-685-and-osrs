@@ -63,14 +63,9 @@ public class GameLauncher {
 
 	public static void main(String[] args) throws Exception {
 		skipSSLValidation();
-		if (args.length < 4) {
-			System.out.println("USE: worldid(int) debug(boolean) hosted(boolean) pvpworld(boolean)");
-			return;
-		}
-		Settings.WORLD_ID = Integer.parseInt(args[0]);
-		Settings.DEBUG = Boolean.parseBoolean(args[1]);
-		Settings.HOSTED = Boolean.parseBoolean(args[2]);
-		Settings.SPAWN_WORLD = Boolean.parseBoolean(args[3]);
+
+		Settings.WORLD_ID = 1;
+
 		if (!Settings.HOSTED) {
 			Settings.LOGIN_SERVER_ADDRESS_BASE = new InetSocketAddress("127.0.0.1", 37777);
 			Settings.LOGIN_CLIENT_ADDRESS_BASE = new InetSocketAddress("127.0.0.1", 37778);
@@ -346,7 +341,7 @@ public class GameLauncher {
 				}
 
 			}
-		}, 5, 5, TimeUnit.MINUTES);
+		}, 1, 1, TimeUnit.MINUTES);
 	}
 
 	private static void addRecalculatePricesTask() { //change to 24h

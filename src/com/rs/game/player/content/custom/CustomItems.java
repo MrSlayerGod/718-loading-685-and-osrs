@@ -127,6 +127,9 @@ public class CustomItems {
 				config.value = price;
 		}
 
+		if ((id >= 23639 + Settings._685_ITEM_OFFSET))
+			config.equipType = 1;
+
 		if ((id == 6133 + Settings._685_ITEM_OFFSET) || (id == 6139 + Settings._685_ITEM_OFFSET)
 				|| (id == 6129 + Settings._685_ITEM_OFFSET) || (id == 6107 + Settings._685_ITEM_OFFSET)
 				|| (id == 6184 + Settings._685_ITEM_OFFSET) || id == 52327 || id == 54420 || id == 21473 + Settings._685_ITEM_OFFSET
@@ -167,6 +170,12 @@ public class CustomItems {
 			break;
 			case 25665:
 				config.name = "Sotetseg pet";
+				break;
+			case 29998:
+				copy(23639, config);
+				config.name = "Elite completionist cape";
+				config.setRangedStrBonus(5);
+				config.setRangeAttack(12);
 				break;
 			case 25661:
 				copy(ItemConfig.forID(16955), config);
@@ -772,7 +781,7 @@ public class CustomItems {
 				break;
 
 			case 25696:
-				copy(74501, config);
+				copy(14501, config);
 				config.name = "Catalyst Robe Bottom";
 				config.value = 100000000;
 				config.tradeable = true;
@@ -4935,9 +4944,9 @@ public class CustomItems {
 			config.inventoryOptions = new String[] { null, "Wear", null, null, "Drop" };
 			config.value = 120000;
 			config.equipSlot = 1;
-			config.model = 100000;
-			config.maleEquip1 = 100000;
-			config.femaleEquip1 = 100000;
+			config.model = 62592;
+			config.maleEquip1 = 71641;
+			config.femaleEquip1 = 62582;
 			config.itemRequiriments = new HashMap<Integer, Integer>();
 			config.itemRequiriments.put(Skills.ATTACK, 120);
 			config.setStabDef(9);

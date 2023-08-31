@@ -28,9 +28,9 @@ public class PlayersOnline {
                     con.setConnectTimeout(5000);
                     con.setReadTimeout(5000);
 
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                    String results = reader.readLine();
-                    reader.close();
+                //    BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                 //   String results = reader.readLine();
+               //     reader.close();
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }

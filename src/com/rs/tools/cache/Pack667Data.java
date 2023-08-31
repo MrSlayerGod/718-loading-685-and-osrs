@@ -17,19 +17,19 @@ import com.rs.cache.Cache;
  */
 public class Pack667Data {
 
-	public static final int MODEL_OFFSET = 300000, ITEM_OFFSET = 60000;
-	
-	public static void main(String[] args) throws IOException {
+	public static final int MODEL_OFFSET = 400000, ITEM_OFFSET = 60000;
+
+	public static void main1(String[] args) throws IOException {
 		boolean packModels = true;
 		boolean packItems = true;
-		
-		
+
+
 		Cache.init();
 
 		Store data2 = new Store("C:\\Users\\Alex\\Downloads\\avaloncache\\cache\\");
 			Index interfaces = Cache.STORE.getIndexes()[Constants.INTERFACE_DEFINITIONS_INDEX];
 			Index interfaces2 = data2.getIndexes()[Constants.INTERFACE_DEFINITIONS_INDEX];
-		
+
 			for (int i = interfaces.getLastArchiveId()+1; i < interfaces2.getLastArchiveId() + 1; i++) {
 				byte[] data = interfaces2.getFile(i);
 				if (data == null)
@@ -44,22 +44,17 @@ public class Pack667Data {
 	 * @param args
 	 * @throws IOException 
 	 */
-	public static void main2(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		boolean packModels = true;
 		boolean packItems = true;
 		
 		
 		Cache.init();
 
-		Store osrsData = new Store("C:\\Users\\alex_\\Downloads\\rs685_cache\\rs685_cache\\");
-		
-		if (true == true) {
-			System.out.println(Utils.getItemDefinitionsSize(osrsData));
-			return;
-		}
+		Store osrsData = new Store("D:\\venomite 202 data osrs\\718-osrs-\\data\\cache\\");
 		
 		if (packModels) {
-			System.out.println("Packing 667 models.");
+			System.out.println("Packing 685 models.");
 			Index models = Cache.STORE.getIndexes()[Constants.MODELS_INDEX];
 			Index osrsModels = osrsData.getIndexes()[Constants.MODELS_INDEX];
 		
@@ -73,7 +68,7 @@ public class Pack667Data {
 			//model + 200000
 		}
 		if (packItems) {
-			System.out.println("Packing 667 items.");
+			System.out.println("Packing 685 items.");
 			Index items = Cache.STORE.getIndexes()[Constants.ITEM_DEFINITIONS_INDEX];
 			Index items667 = osrsData.getIndexes()[Constants.ITEM_DEFINITIONS_INDEX];
 			int count = Utils.getItemDefinitionsSize(osrsData);

@@ -551,7 +551,7 @@ public class EvilSanta extends NPC {
                     World.sendNews( "<col=" + Colour.ORANGE_RED.hex + "><shad=ff0000>" + player.getName() + " has found an Infernal cracker inside a Christmas present!", 0);
                     player.getInventory().addItemDrop(ChristmasBox.CRACKER, 1);
                 }
-                player.sendMessage(Colour.ORANGE_RED.wrap("Merry Christmas! Thank you for participating in Gallifrey's Christmas event."));
+                player.sendMessage(Colour.ORANGE_RED.wrap("Merry Christmas! Thank you for participating in Matrix's Christmas event."));
                 player.getInventory().addItem(Utils.get(PARTICIPATION_REWARDS).clone());
 
                 // always 3m coins

@@ -50,7 +50,7 @@ public class PackOSRSData {
 		Cache.init();
 
 		Store osrsData = new Store(
-				"C:\\Users\\alex\\Downloads\\OSRSCD_1.0.3\\data\\");
+				"C:\\Users\\Gebruiker\\Desktop\\192 cache\\");
 			//	"C:\\Users\\alex_\\git\\osrs-server\\data\\cache\\");
 		
 		

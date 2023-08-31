@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import com.alex.utils.Constants;
 import com.rs.cache.Cache;
 import com.rs.cache.loaders.NPCConfig;
+import com.rs.cache.loaders.ObjectConfig;
 
 /**
  * @author dragonkk(Alex)
@@ -42,17 +43,9 @@ public class DumpModels {
 
 	public static void main(String[] args) throws IOException {
 		Cache.init();
-		//dump(8719);
-		for (int model : NPCConfig.forID(25870).models)  
-			dump(model);
-	/*	for (int model : NPCConfig.forID(22043).models)  
-			dump(model);*/
-	/*	for (int i = 5120; i <= 5123; i++)
-		for (int model : NPCConfig.forID(i).models)  
-			dump(model);
-	/*	dump(ItemConfig.forID(42926).model);
-		dump(ItemConfig.forID(42926).maleEquip1);
-		dump(ItemConfig.forID(42926).femaleEquip1);*/
+		for (int Object : ObjectConfig.forID(16209).toObjectIds)
+			dump(Object);
+
 	}
 	
 	private static void dump(int i) throws IOException {

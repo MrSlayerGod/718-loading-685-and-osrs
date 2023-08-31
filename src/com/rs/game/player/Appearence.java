@@ -126,7 +126,7 @@ public class Appearence implements Serializable {
 		if (title == 3008)
 			return "<col=0e6b05>Green</col> ";
 		if (title == 3009)
-            return "<col=ff3300>Spent too much IRL gp on Gallifrey --></col> ";
+            return "<col=ff3300>Spent too much IRL gp on Matrix --></col> ";
 		if (title == 3010)
 			return "<col=ffff00>September Top Donator</col> ";
 		if (title == 3011)

@@ -792,9 +792,9 @@ public class Region {
 		Cache.init();
 		
 		Store osrsData = new Store(
-				"C:\\Users\\alex\\Downloads\\OSRSCD_1.0.3\\data\\");
+				"C:\\Users\\Gebruiker\\Desktop\\test\\");
 		
-		int id = osrsData.getIndexes()[6].getArchiveId(name.toLowerCase().replace(" ", "_"));
+		int id = osrsData.getIndexes()[6].getArchiveId(name.toLowerCase().replace("12342", "12342"));
 		int id2 = osrsData.getIndexes()[6].getArchiveId(name.toLowerCase());
 		System.out.println(id+", "+id2);
 	}

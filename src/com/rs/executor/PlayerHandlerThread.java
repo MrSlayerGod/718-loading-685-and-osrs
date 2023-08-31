@@ -135,11 +135,11 @@ public final class PlayerHandlerThread extends Thread {
 	 * Processe's given session. Returns true if session should be removed.
 	 */
 	private final boolean processLoginSession(LoginDetails details) {
-		if (!(details.session.getEncoder() instanceof LoginPacketsEncoder)) {
-			if (details.session.getChannel() != null)
-				details.session.getChannel().close();
-			return true;
-		}
+//		if (!(details.session.getEncoder() instanceof LoginPacketsEncoder)) {
+//			if (details.session.getChannel() != null)
+//				details.session.getChannel().close();
+//			return true;
+//		}
 		if (details.step == 0) { // send request to login server
 			LoginClientChannelManager.sendUnreliablePacket(LoginChannelsPacketEncoder.encodeLoginRequest(details.hashCode(), details.username, details.password, details.session.getIP(), details.macAddress, details.lobby).trim());
 			details.step = 1;

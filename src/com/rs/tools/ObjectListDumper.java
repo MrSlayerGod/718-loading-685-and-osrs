@@ -13,7 +13,7 @@ public class ObjectListDumper {
 
 	public static void main(String[] args) throws IOException {
 		Cache.init();
-		File file = new File("extra/objectlist.txt");
+		File file = new File("objectlist.txt");
 		if (file.exists())
 			file.delete();
 		else

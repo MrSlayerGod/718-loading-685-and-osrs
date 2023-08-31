@@ -12,6 +12,7 @@ import com.rs.Settings;
 import com.rs.cache.Cache;
 import com.rs.game.item.Item;
 import com.rs.game.player.Equipment;
+import com.rs.game.player.Player;
 import com.rs.game.player.Skills;
 import com.rs.game.player.content.custom.CustomItems;
 import com.rs.io.InputStream;
@@ -1362,7 +1363,7 @@ public final class ItemConfig {
 			Logger.log(this, "Wrong opcode (rs2): "+opcode);
 		}
 	}
-	
+
 	public final void readValues685(InputStream stream, int opcode) {
 		if (opcode == 1)
 			model = stream.readBigSmart() + Settings._685_MODEL_OFFSET;
@@ -1720,7 +1721,253 @@ public final class ItemConfig {
 	public int getEquipType() {
 		return equipType;
 	}
-	
+
+	public void getShopStats(Player player, Item item) {
+		if (item.getDefinitions().name.contains("sword") || item.getDefinitions().name.contains("dagger")
+				|| item.getDefinitions().name.contains("scimitar") || item.getDefinitions().name.contains("whip")
+				|| item.getDefinitions().name.contains("spear") || item.getDefinitions().name.contains("mace")
+				|| item.getDefinitions().name.contains("battleaxe") || item.getDefinitions().name.contains("staff")
+				|| item.getDefinitions().name.contains("hatchet") || item.getDefinitions().name.contains("pickaxe")
+				|| item.getDefinitions().name.contains("plate") || item.getDefinitions().name.contains("body")
+				|| item.getDefinitions().name.contains("robe top") || item.getDefinitions().name.contains("top")
+				|| item.getDefinitions().name.contains("jacket") || item.getDefinitions().name.contains("tabard")
+
+				|| item.getDefinitions().name.contains("shirt") || item.getDefinitions().name.contains("apron")
+				|| item.getDefinitions().name.contains("chest") || item.getDefinitions().name.contains("gloves")
+				|| item.getDefinitions().name.contains("gauntlets") || item.getDefinitions().name.contains("vambraces")
+				|| item.getDefinitions().name.contains("boots") || item.getDefinitions().name.contains("necklace")
+				|| item.getDefinitions().name.contains("amulet") || item.getDefinitions().name.contains("skirt")
+				|| item.getDefinitions().name.contains("kilt") || item.getDefinitions().name.contains("leggings")
+				|| item.getDefinitions().name.contains("chaps") || item.getDefinitions().name.contains("pants")
+				|| item.getDefinitions().name.contains("shorts") || item.getDefinitions().name.contains("legs")
+				|| item.getDefinitions().name.contains("helm") || item.getDefinitions().name.contains("cap")
+				|| item.getDefinitions().name.contains("hood") || item.getDefinitions().name.contains("coif")
+				|| item.getDefinitions().name.contains("fez") || item.getDefinitions().name.contains("mask")
+				|| item.getDefinitions().name.contains("paint") || item.getDefinitions().name.contains("visor")
+				|| item.getDefinitions().name.contains("cavalier") || item.getDefinitions().name.contains("hat")
+				|| item.getDefinitions().name.contains("shield") || item.getDefinitions().name.contains("book")
+				|| item.getDefinitions().name.contains("shield") || item.getDefinitions().name.contains("2h")
+				|| item.getDefinitions().name.contains("maul") || item.getDefinitions().name.contains("claws")
+				|| item.getDefinitions().name.contains("cape") || item.getDefinitions().name.contains("ava's")
+				|| item.getDefinitions().name.contains("cloak") || item.getDefinitions().name.contains("Cape")
+				|| item.getDefinitions().name.contains("arrow") || item.getDefinitions().name.contains("bolt")
+				|| item.getDefinitions().name.contains("ball") || item.getDefinitions().name.contains("chinchompa")
+				|| item.getDefinitions().name.contains("dart") || item.getDefinitions().name.contains("knife")
+				|| item.getDefinitions().name.contains("javelin") || item.getDefinitions().name.contains("holy water")
+				|| item.getDefinitions().name.contains("bow") || item.getDefinitions().name.contains("Staff")
+				|| item.getDefinitions().name.contains("staff") || item.getDefinitions().name.contains("wand")) {
+			player.getPackets().sendVar(1876, 0);
+		} else {
+			player.getPackets().sendVar(1876, -1);
+		}
+	}
+
+	public String getEquipType(Item item) {
+		if (item.getDefinitions().name.contains("sword") || item.getDefinitions().name.contains("dagger")
+				|| item.getDefinitions().name.contains("scimitar") || item.getDefinitions().name.contains("whip")
+				|| item.getDefinitions().name.contains("spear") || item.getDefinitions().name.contains("mace")
+				|| item.getDefinitions().name.contains("battleaxe") || item.getDefinitions().name.contains("staff")
+				|| item.getDefinitions().name.contains("hatchet") || item.getDefinitions().name.contains("pickaxe")) {
+			return "wielded in the right hand";
+		}
+
+		if (item.getDefinitions().name.contains("plate") || item.getDefinitions().name.contains("body")
+				|| item.getDefinitions().name.contains("robe top") || item.getDefinitions().name.contains("top")
+				|| item.getDefinitions().name.contains("jacket") || item.getDefinitions().name.contains("tabard")
+				|| item.getDefinitions().name.contains("shirt") || item.getDefinitions().name.contains("apron")
+				|| item.getDefinitions().name.contains("chest")) {
+			return "worn on the torso";
+		}
+		if (item.getDefinitions().name.contains("gloves") || item.getDefinitions().name.contains("gauntlets")
+				|| item.getDefinitions().name.contains("vambraces")) {
+			return "worn on the hands";
+		}
+		if (item.getDefinitions().name.contains("boots")) {
+			return "worn on the feet";
+		}
+		if (item.getDefinitions().name.contains("necklace") || item.getDefinitions().name.contains("amulet")) {
+			return "worn on the neck";
+		}
+		if (item.getDefinitions().name.contains("skirt") || item.getDefinitions().name.contains("kilt")
+				|| item.getDefinitions().name.contains("leggings") || item.getDefinitions().name.contains("chaps")
+				|| item.getDefinitions().name.contains("pants") || item.getDefinitions().name.contains("shorts")
+				|| item.getDefinitions().name.contains("legs")) {
+			return "worn on the legs";
+		}
+		if (item.getDefinitions().name.contains("helm") || item.getDefinitions().name.contains("cap")
+				|| item.getDefinitions().name.contains("hood") || item.getDefinitions().name.contains("coif")
+				|| item.getDefinitions().name.contains("fez") || item.getDefinitions().name.contains("mask")
+				|| item.getDefinitions().name.contains("paint") || item.getDefinitions().name.contains("visor")
+				|| item.getDefinitions().name.contains("cavalier") || item.getDefinitions().name.contains("hat")) {
+			return "worn on the head";
+		}
+		if (item.getDefinitions().name.contains("shield") || item.getDefinitions().name.contains("book")) {
+			return "held in the left hand";
+		}
+		if (item.getDefinitions().name.contains("shield") || item.getDefinitions().name.contains("2h")
+				|| item.getDefinitions().name.contains("maul") || item.getDefinitions().name.contains("claws")) {
+			return "wielded in both hands";
+		}
+		if (item.getDefinitions().name.contains("cape") || item.getDefinitions().name.contains("ava's")
+				|| item.getDefinitions().name.contains("cloak") || item.getDefinitions().name.contains("Cape")) {
+			return "worn on the back";
+		}
+		return "an item";
+	}
+
+	public String getItemType(Item item) {
+		if (item.getDefinitions().name.contains("sword") || item.getDefinitions().name.contains("dagger")
+				|| item.getDefinitions().name.contains("scimitar") || item.getDefinitions().name.contains("maul")
+				|| item.getDefinitions().name.contains("whip") || item.getDefinitions().name.contains("claws")
+				|| item.getDefinitions().name.contains("spear") || item.getDefinitions().name.contains("mace")
+				|| item.getDefinitions().name.contains("cane") || item.getDefinitions().name.contains("hasta")
+				|| item.getDefinitions().name.contains("brackish blade")
+				|| item.getDefinitions().name.contains("battleaxe")) {
+			return "a melee weapon";
+		}
+		if (item.getDefinitions().name.contains("Staff") || item.getDefinitions().name.contains("wand")) {
+			return "a weapon for mages";
+		}
+		if (item.getDefinitions().name.contains("body") || item.getDefinitions().name.contains("legs")
+				|| item.getDefinitions().name.contains("robe") || item.getDefinitions().name.contains("priest")
+				|| item.getDefinitions().name.contains("helm")) {
+			return "a piece of apparel";
+		}
+		if (item.getDefinitions().name.contains("shield")) {
+			return "a shield";
+		}
+		if (item.getDefinitions().name.contains("hatchet")) {
+			return "a hatchet";
+		}
+		if (item.getDefinitions().name.contains("arrow") || item.getDefinitions().name.contains("bolt")
+				|| item.getDefinitions().name.contains("ball")) {
+			return "ammunition for a ranged weapon";
+		}
+		if (item.getDefinitions().name.contains("chinchompa") || item.getDefinitions().name.contains("dart")
+				|| item.getDefinitions().name.contains("knife") || item.getDefinitions().name.contains("javelin")
+				|| item.getDefinitions().name.contains("holy water") || item.getDefinitions().name.contains("bow")) {
+			return "a ranged weapon";
+		}
+		return "an item";
+	}
+
+	public void applyEquipData() {
+		String name = this.name.toLowerCase();
+
+		if (name.contains(" chestplate") || name.contains("body")
+				|| name.contains(" brassard") || name.contains(" top")
+				|| name.contains(" jacket") || name.contains(" shirt")
+				|| name.contains(" apron") || name.contains(" coat")
+				|| name.contains(" blouse") || name.contains(" hauberk")
+				|| name.contains(" chestguard") || name.contains(" torso")
+				|| name.contains(" garb") || name.contains(" tunic")
+				|| name.contains(" armour")) {
+			equipSlot = 4;
+			equipType = 6;
+		}
+
+		if (name.contains("legs") || name.contains("skirt")
+				|| name.contains("robe bottom") || name.contains(" chaps")
+				|| name.contains(" leggings") || name.contains(" tassets")
+				|| name.contains("slacks") || name.contains(" bottoms")
+				|| name.contains(" trousers") || name.contains(" greaves")
+				|| name.contains("Shorts")) {
+			equipSlot = 7;
+		}
+
+		if (name.contains("mask") || name.contains("helm")
+				|| name.contains("hat") || name.contains(" hood")
+				|| name.contains("coif") || name.contains("mitre")
+				|| name.contains("eyepatch") || name.contains("mask")
+				|| name.contains(" boater") || name.contains(" beret")
+				|| name.contains(" snelm") || name.contains(" tiara")
+				|| name.contains(" ears") || name.contains(" head")
+				|| name.contains(" cavalier") || name.contains(" wreath")
+				|| name.contains("fedora") || name.contains("fez")
+				|| name.contains(" headband") || name.contains(" headgear")
+				|| name.contains(" faceguard")) {
+			if (name.contains("mask"))
+				equipType = 8;
+			equipSlot = 0;
+		}
+
+		if (name.contains("ring")) {
+			equipSlot = 12;
+		}
+
+		if (name.contains("amulet") || name.contains("necklace")
+				|| name.contains("pendant") || name.contains("scarf")
+				|| name.contains("stole") || name.contains(" symbol")) {
+			equipSlot = 2;
+		}
+
+		if (name.contains("boots") || name.contains("feet")
+				|| name.contains("shoes") || name.contains("sandals")) {
+			equipSlot = 10;
+		}
+
+		if (name.contains("gloves") || name.contains(" vamb")
+				|| name.contains("bracelet") || name.contains("bracers")
+				|| name.contains("gauntlets") || name.contains(" cuffs")
+				|| name.contains("hands") || name.contains("armband")) {
+			equipSlot = 9;
+		}
+
+		if (name.contains("cape") || name.contains("cloak") || name.contains("ava's")) {
+			equipSlot = 1;
+		}
+
+		if (name.contains("shield") || name.contains("defender")
+				|| name.contains("book") || name.contains(" ward")
+				|| name.equalsIgnoreCase("tome of fire") || name.equalsIgnoreCase("toktz-ket-xil")
+				|| name.contains("satchel")) {
+			equipSlot = 5;
+		}
+
+		if (name.contains(" arrow") || name.contains(" bolts")
+				|| name.contains(" brutal") || name.contains(" arrows")
+				|| name.contains(" tar") || name.contains(" blessing")
+				|| name.contains(" javelin") || name.contains(" grapple")) {
+			equipSlot = 13;
+		}
+
+		if (name.contains("sword") || name.contains("whip")
+				|| name.contains("halbard") || name.contains("claws")
+				|| name.contains("spear") || name.contains("anchor")
+				|| name.contains("lance")
+				|| name.contains("dagger") || name.contains("bow")
+				|| name.contains("bulwark") || name.contains(" axe")
+				|| name.contains(" maul") || name.contains(" ballista")
+				|| name.contains(" club") || name.contains("katana")
+				|| name.contains("scythe") || name.contains("staff")
+				|| name.contains("sceptre")
+				|| name.contains("wand") || name.contains("lizard")
+				|| name.contains("salamander") || name.contains("flail")
+				|| name.contains("mjolnir") || name.contains("mace")
+				|| name.contains("hammer") || name.contains("arclight")
+				|| name.contains("crozier") || name.contains("banner ")
+				|| name.contains("dart") || name.contains("cane")
+				|| name.contains("chinchompa") || name.contains("knife")
+				|| name.contains("scimitar") || name.contains("hasta")
+				|| name.contains("rapier") || name.contains("sickle")
+				|| name.contains("greegree") || name.contains("machete")
+				|| name.contains("blackjack") || name.contains("blowpipe")
+				|| name.contains("trident") || name.contains("pickaxe")
+				|| name.contains("harpoon") || name.contains("bludgeon")) {
+			equipSlot = 3;
+			if (name.contains("2h") || name.contains("halbard")
+					|| name.contains("spear") || name.contains("bulwark")
+					|| name.contains("maul") || name.contains(" ballista")
+					|| name.contains("salamander") || name.contains("lizard")
+					|| (name.contains("bow") && (!name.contains("cross") && !name.contains("karil's")))
+					|| name.contains("club") || name.contains("claws")
+					|| name.contains("blowpipe") || name.contains("anchor")
+					|| name.contains("greataxe") || name.contains("godsword") || name.contains("bludgeon")) {
+				equipType = 5;
+			}
+		}
+	}
+
 
 	public int getCSOpcode(int opcode) {
 		if (clientScriptData == null)

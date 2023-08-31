@@ -43,13 +43,6 @@ public final class Logger {
 							writer.newLine();
 							writer.flush();
 							writer.close();
-							
-							writer = new BufferedWriter(new FileWriter("data/log/ips/" + name + ".txt", true));
-							writer.write(message);
-							writer.newLine();
-							writer.flush();
-							writer.close();
-							
 						} catch (Throwable e) {
 							e.printStackTrace();
 						}

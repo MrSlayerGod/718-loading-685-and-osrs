@@ -199,6 +199,7 @@ public final class Equipment implements Serializable {
 		return ItemConfig.forID(id).getEquipType() == 8;
 	}
 
+
 	public static boolean showBear(int id) {
 		if (id == 25582)
 			return true;

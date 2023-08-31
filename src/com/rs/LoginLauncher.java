@@ -22,15 +22,15 @@ public class LoginLauncher {
 	 */
 	public static boolean shutdown;
 
-	
+
 	public static void main(String[] args) throws KeyManagementException, NoSuchAlgorithmException {
 		GameLauncher.skipSSLValidation();
-		if (args.length < 2) {
-			System.out.println("USE: debug(boolean) hosted(boolean)");
-			return;
-		}
-		Settings.DEBUG = Boolean.parseBoolean(args[0]);
-		Settings.HOSTED = Boolean.parseBoolean(args[1]);
+//		if (args.length < 2) {
+//			System.out.println("USE: debug(boolean) hosted(boolean)");
+//			return;
+//		}
+//		Settings.DEBUG = Boolean.parseBoolean(args[0]);
+//		Settings.HOSTED = Boolean.parseBoolean(args[1]);
 		long currentTime = Utils.currentTimeMillis();
 
 		if (!Settings.HOSTED) {
@@ -170,14 +170,14 @@ public class LoginLauncher {
 
 		Logger.log("Launcher", "Awaiting worker shutdown...");
 		LoginExecutorManager.shutdown(true);
-		
+
 		//Logger.log("Launcher", "Awaiting for last packets to arrive to game servers...");
 		//LoginServerChannelManager.awaitQueue();
 
 		Logger.log("Launcher", "Shutting down network...");
-	//	WebsiteChannelsManager.shutdown();
+		//	WebsiteChannelsManager.shutdown();
 		LoginServerChannelManager.shutdown();
-	//	HttpPanelChannelsManager.shutdown();
+		//	HttpPanelChannelsManager.shutdown();
 
 		Logger.log("Launcher", "Shutting down login core...");
 		Login.shutdown();

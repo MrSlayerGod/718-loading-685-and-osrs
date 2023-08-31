@@ -44,8 +44,8 @@ public class HomeCutScene3 extends Cutscene {
 
 		actionsList.add(new CreateNPCAction(ORACLE, 2253, 3126, 3710, 0, "Wise Old Man", 0, -1));
 
-		actionsList.add(new NPCForceTalkAction(ORACLE, "Welcome to Matrix, adventurer. ", 8));
-		actionsList.add(new NPCForceTalkAction(ORACLE, "Matrix is a 718 revision along with HD graphics with a blend of OSRS content.", 8));
+		actionsList.add(new NPCForceTalkAction(ORACLE, "Welcome to runic, adventurer. ", 8));
+		actionsList.add(new NPCForceTalkAction(ORACLE, "Runic is a 718 revision along with HD graphics with a blend of OSRS content.", 8));
 
 		// Home Overview
 

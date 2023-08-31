@@ -228,9 +228,9 @@ public class CustomObjects {
 			copy(34385, config);
 			config.name = "Zenyte stall";
 			break;
-		case 129937:
-			config.name = "Matrix's statue";
-			break;
+			case 129937:
+				config.name = "Runic's statue";
+				break;
 		case 78331: //custom
 		case 133114:
 			copy(59731, config);

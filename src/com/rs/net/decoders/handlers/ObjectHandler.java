@@ -299,7 +299,7 @@ public final class ObjectHandler {
 			return true;
 		}
 		//vip zone
-		 if (id == 129241 || id == 62594) {
+		 if (id == 129241 || id == 62594  || id == 123709) {
 				/*if (!player.isDiamondDonator()) {
 					player.getPackets().sendGameMessage("You must be a diamond donator in order to access this feature.");
 					player.getPackets().sendGameMessage("If you would like to subscribe and become a diamond donator, please do the command ::donate to learn how.");

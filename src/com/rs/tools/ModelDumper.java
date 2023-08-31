@@ -7,12 +7,14 @@ import java.io.OutputStream;
 import com.alex.store.Index;
 import com.alex.store.Store;
 import com.rs.cache.Cache;
+import com.rs.cache.loaders.ObjectConfig;
 
 public class ModelDumper {
 
 	public static void main(String[] args) throws IOException {
-		Cache.STORE = new Store("C:/Users/Alexandre/Desktop/Java/projectos/FileStore2/cache562/", false);
-		Index index = Cache.STORE.getIndexes()[7];
+		Cache.STORE = new Store("C:\\Users\\Gebruiker\\Desktop\\osrs718cache/", false);
+		Index index = Cache.STORE.getIndexes()[16];
+		ObjectConfig.forID(333);
 		System.out.println(index.getLastArchiveId());
 		for (int i = 0; i < index.getLastArchiveId(); i++) {
 			byte[] data = index.getFile(i);

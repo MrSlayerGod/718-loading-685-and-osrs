@@ -13,7 +13,7 @@ public class NPCListDumper {
 
 	public static void main(String[] args) throws IOException {
 		Cache.init();
-		File file = new File("extra/npcList.txt");
+		File file = new File("npcList.txt");
 		if (file.exists())
 			file.delete();
 		else

@@ -16,7 +16,7 @@ public class HomeTeleport extends Action {
 			VARROCK_LODE_STONE = new WorldTile(3214, 3376, 0), EDGEVILLE_LODE_STONE = new WorldTile(3067, 3505, 0), FALADOR_LODE_STONE = new WorldTile(2967, 3403, 0),
 			PORT_SARIM_LODE_STONE = new WorldTile(3011, 3215, 0), DRAYNOR_VILLAGE_LODE_STONE = new WorldTile(3105, 3298, 0), ARDOUGNE_LODE_STONE = new WorldTile(2634, 3348, 0),
 			CATHERBAY_LODE_STONE = new WorldTile(2831, 3451, 0), YANILLE_LODE_STONE = new WorldTile(2529, 3094, 0), SEERS_VILLAGE_LODE_STONE = new WorldTile(2689, 3482, 0)
-			, DONATOR_ZONE = new WorldTile(3367, 5220, 0), HOME_LODE_STONE = new WorldTile(3093, 3497, 0),
+			, DONATOR_ZONE = new WorldTile(3367, 5220, 0), HOME_LODE_STONE = new WorldTile(2143, 3541, 0),
 			VIP_ZONE = new WorldTile(3710, 5563, 0);
 
 	private int currentTime;

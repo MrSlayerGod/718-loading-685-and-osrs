@@ -35,7 +35,7 @@ public class EstateAgentD extends Dialogue {
 	public void run(int interfaceId, int componentId) {
 
 		if (stage == -1) {
-			sendOptionsDialogue("SELECT AN OPTION", "Can you move my house please?", "Can you redecorate my house please?", "Could I have a Construction guidebook?", "Tell me about houses.", player.getSkills().getLevel(Skills.CONSTRUCTION) == 99 ? "Can you sell me a Skillcape of Construction?" : "Tell me about that skillcape you're wearing.");
+			sendOptionsDialogue("SELECT AN OPTION", "Can you move my house please?", "Can you redecorate my house please?", "Could I have a Construction ?", "Tell me about houses.", player.getSkills().getLevel(Skills.CONSTRUCTION) == 99 ? "Can you sell me a Skillcape of Construction?" : "Tell me about that skillcape you're wearing.");
 			stage = 0;
 		} else if (stage == 0) {
 			if (componentId == OPTION_1) {

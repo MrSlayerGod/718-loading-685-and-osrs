@@ -25,7 +25,7 @@ import java.util.*;
 public class GiantMimic extends NPC {
 
     // npcs
-    public static final int MIMIC_ID = 21230, WARRIOR_ID = 28635, RANGER_ID = 28636, MAGE_ID = 28637;
+    public static final int MIMIC_ID = 28633, WARRIOR_ID = 28635, RANGER_ID = 28636, MAGE_ID = 28637;
 
     // anims
     public static final Animation CANDY_ATTACK_ANIM = new Animation(28309);
@@ -124,7 +124,7 @@ public class GiantMimic extends NPC {
         for (Item item : OVERALL_REWARDS)
             dList[Drops.COMMOM].add(new Drop(item.getId(), item.getAmount(), item.getAmount()));
         drops.addDrops(dList);
-        NPCDrops.addDrops(21230, drops);
+        NPCDrops.addDrops(28633, drops);
     }
 
 
