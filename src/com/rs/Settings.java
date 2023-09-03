@@ -44,7 +44,7 @@ public final class Settings {
 	//
 
 	public static int WORLD_ID = 0;
-	public static boolean DEBUG = false;
+	public static boolean DEBUG = true;
 	public static boolean HOSTED = true;
 	public static boolean ENABLE_WHITELIST = false;
 	public static boolean SPAWN_WORLD = false;

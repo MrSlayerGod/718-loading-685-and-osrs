@@ -1,5 +1,6 @@
 package com.rs.game;
 
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,6 +91,8 @@ import com.rs.net.Session;
 import com.rs.net.encoders.LoginChannelsPacketEncoder;
 import com.rs.utils.*;
 
+import javax.swing.text.Position;
+
 public final class World {
     private static final EntityList<Player> players = new EntityList<Player>(Settings.PLAYERS_LIMIT, true);
     private static final List<Player> lobbyPlayers = new ArrayList<Player>(Settings.PLAYERS_LIMIT);
@@ -118,6 +121,7 @@ public final class World {
         addRestoreShopItemsTask();
         addOwnedObjectsTask();
         addOnlineTokensTask();
+        addTileMessages();
         if (Settings.XP_BONUS_ENABLED)
             addIncreaseElapsedBonusMinutesTak();
         addUpdateDealsTimer();
@@ -125,6 +129,20 @@ public final class World {
 
         /** PUT FUTURE INITS IN ContentInitializer class! */
         ContentInitializer.init();
+    }
+
+    public static final void addTileMessages() {
+        GameExecutorManager.slowExecutor.scheduleAtFixedRate(() -> {
+            for (Player player : World.getPlayers()) {
+                if (player.getRegionId() == 8503 && player.hasMessageHovers) {
+					player.getPackets().sendTileMessage("Shops / Slayer Masters", new WorldTile(2148, 3553, 0), Color.white.getRGB());
+					player.getPackets().sendTileMessage("Teleportation", new WorldTile(3628, 2655, 0), Color.white.getRGB());
+					player.getPackets().sendTileMessage("Skilling Zone", new WorldTile(3631, 2673, 0), Color.white.getRGB());
+					player.getPackets().sendTileMessage("Spirit Tree / Fairy Rings", new WorldTile(3625, 2662, 0), Color.white.getRGB());
+					player.getPackets().sendTileMessage("Spellbooks & Prayers", new WorldTile(3622, 2655, 0), Color.white.getRGB());
+                }
+            }
+        }, 0, 1, TimeUnit.SECONDS);
     }
 
     //announcements every 30 min or gets annoying.

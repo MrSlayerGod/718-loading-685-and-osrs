@@ -23,7 +23,7 @@ public class Sprites {
 
 	//1455- ranks
 
-	public static void main(String[] args) throws IOException {
+	public static void main66(String[] args) throws IOException {
 		Cache.init();
 		boolean sucess = true;
 		/*int i = 8698; //task sprite
@@ -137,13 +137,13 @@ public class Sprites {
 	//498, 3778 logo
 	//3769 bg load
 	//4129 to 4136 originally
-	public static void mainbc(String[] args) throws IOException {
+	public static void main2232323(String[] args) throws IOException {
 		Cache.init();
 		//Cache.STORE = new Store("C:/Users/alex_/git/aurost-server/Configuration/Game/Cache/");
 		boolean sucess = true;
 
-		for (int i = 19000; i<= 19007; i++) { //bg
-			IndexedColorImageFile sprite = new IndexedColorImageFile(ImageIO.read(new File("extra/sprites/login/"+i+".png")));
+		for (int i = 22612; i<= 22624; i++) { //bg
+			IndexedColorImageFile sprite = new IndexedColorImageFile(ImageIO.read(new File("C:\\Users\\Administrator\\Desktop\\textures\\14006-0\\"+i+".png")));
 			System.out.println("pACK "+i);
 			sucess |= Cache.STORE.getIndexes()[Constants.SPRITES_INDEX].putFile(i, 0, Constants.GZIP_COMPRESSION, sprite.encodeFile(), null, false, false, -1, -1);
 
@@ -204,9 +204,9 @@ public class Sprites {
 	System.out.println(Cache.STORE.getIndexes()[Constants.SPRITES_INDEX].getArchive(19998).getDecompressedLength());
 	}*/
 
-	public static void main3(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		Cache.init();
-		File[] tabs = new File("sprites/osrs").listFiles();
+		File[] tabs = new File("C:\\Users\\Administrator\\Desktop\\textures\\").listFiles();
 		for (File tab : tabs) {
 			int id = Integer.parseInt(tab.getName().replace(".png", ""));
 			System.out.println(id);
@@ -214,7 +214,7 @@ public class Sprites {
 		//	sprite.trim(1);
 		///	sprite.addImage(ImageIO.read(tab));
 			IndexedColorImageFile sprite = new IndexedColorImageFile(ImageIO.read(tab));
-			Cache.STORE.getIndexes()[Constants.SPRITES_INDEX].putFile(id, id >= 19900  ? 0 : 1, sprite.encodeFile());
+			Cache.STORE.getIndexes()[Constants.SPRITES_INDEX].putFile(id, id >= 13900  ? 0 : 1, sprite.encodeFile());
 		}
 		Cache.STORE.getIndexes()[Constants.SPRITES_INDEX].rewriteTable();
 	}
