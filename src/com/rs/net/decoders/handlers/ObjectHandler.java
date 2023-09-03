@@ -4796,7 +4796,7 @@ public final class ObjectHandler {
 			player.getPackets().sendGameMessage("You fail to cut through the web.");
 	}
 
-	private static boolean handleGate(Player player, WorldObject object) {
+	public static boolean handleGate(Player player, WorldObject object) {
 		return handleGate(player, object, 60000);
 	}
 

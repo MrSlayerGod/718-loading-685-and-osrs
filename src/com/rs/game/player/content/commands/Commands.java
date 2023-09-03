@@ -3501,9 +3501,6 @@ public final class Commands {
                         PkTournament.initTournament(10, TimeUnit.MINUTES);
                     }
                     break;
-                case "osrsanim":
-                    player.setNextAnimation(Animation.createOSRS(Integer.parseInt(cmd[1])));
-                    return true;
                 case "enablemp":
                     World.sendWorldMessage("<col=551177>[Server Message] Double Minigame Points has been" + "<col=88aa11> enabled.", false);
                     Settings.DOUBLE_MINIGAME_ENABLED = true;

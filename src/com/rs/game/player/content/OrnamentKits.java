@@ -11,7 +11,7 @@ public class OrnamentKits {
 		//this way you cant construct this class by mistake
 	}
 
-	private static enum Kits {
+	private enum Kits {
 		FURY_ORNAMENT(6585, 19333, 19335),
 		DRAGON_PLATEBODY_OR(14479, 19350, 19337),
 		DRAGON_PLATELEGS_OR(4087, 19348, 19338),

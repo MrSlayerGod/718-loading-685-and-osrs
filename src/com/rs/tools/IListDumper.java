@@ -21,7 +21,7 @@ public class IListDumper {
 
 	public IListDumper() throws IOException {
 		Cache.init();
-		File file = new File("itemList.txt"); // = new
+		File file = new File("extra/itemList.txt"); // = new
 		// File("information/itemlist.txt");
 		if (file.exists())
 			file.delete();

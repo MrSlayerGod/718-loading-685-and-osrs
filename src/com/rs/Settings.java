@@ -73,11 +73,6 @@ public final class Settings {
 		}
 	}
 
-	public static final String[] OWNERS = { "deaneo" };
-	public static final String[] CO_OWNERS = { "alex" };
-	public static final String[] ADMINS = { "alex" };
-	public static final String[] DEVELOPERS = { "bob" };
-
 	public static void loadWhiteList() {
 		betaWhitelist.clear();
 		if(ENABLE_WHITELIST) {
@@ -113,10 +108,7 @@ public final class Settings {
 	public static int OSRS_NPC_OFFSET = 20000;
 	public static int OSRS_GFX_OFFSET = 5000;
 	public static int _685_MODEL_OFFSET = 300000;
-
-
 	public static final int _685_ITEM_OFFSET = 60000;
-
 	public static int OSRS_ANIMATIONS_OFFSET = 20000;
 	public static int NPC_STANCE_OFFSET = 20000;
 	public static int OSRS_OBJECTS_OFFSET = 100000;

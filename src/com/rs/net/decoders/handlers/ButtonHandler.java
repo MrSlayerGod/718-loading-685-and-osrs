@@ -971,272 +971,274 @@ public class ButtonHandler {
 			else if (componentId >= 97 && componentId <= 116)
 				player.setGuestChatSetup(componentId - 97);
 		} else if (interfaceId == 271) {
-			WorldTasksManager.schedule(new WorldTask() {
+			/*WorldTasksManager.schedule(new WorldTask() {
+
 				@Override
 				public void run() {
+					if (player.isDead())
+						return;*/
 					if (componentId == 8 || componentId == 42) {
 						player.getPrayer().switchPrayer(slotId);
-					} else if (componentId == 43 && player.getPrayer().isUsingQuickPrayer()) {
+					} else if (componentId == 43 && player.getPrayer().isUsingQuickPrayer())
 						player.getPrayer().switchSettingQuickPrayer();
-					}
-				}
-			});
-		} else if (interfaceId == 320) {
-			if (packetId == 14) {
-				player.stopAll();
-				int lvlupSkill = -1;
-				int skillMenu = -1;
+				/*}
+			});*/
 
-				switch (componentId) {
-					case 150: // Attack
-						skillMenu = 1;
-						if (player.getTemporaryAttributtes().remove("leveledUp[0]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 1);
-						} else {
-							lvlupSkill = 0;
-							player.getVarsManager().sendVar(1230, 10);
-						}
-						break;
-					case 9: // Strength
-						skillMenu = 2;
-						if (player.getTemporaryAttributtes().remove("leveledUp[2]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 2);
-						} else {
-							lvlupSkill = 2;
-							player.getVarsManager().sendVar(1230, 20);
-						}
-						break;
-					case 22: // Defence
-						skillMenu = 5;
-						if (player.getTemporaryAttributtes().remove("leveledUp[1]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 5);
-						} else {
-							lvlupSkill = 1;
-							player.getVarsManager().sendVar(1230, 40);
-						}
-						break;
-					case 40: // Ranged
-						skillMenu = 3;
-						if (player.getTemporaryAttributtes().remove("leveledUp[4]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 3);
-						} else {
-							lvlupSkill = 4;
-							player.getVarsManager().sendVar(1230, 30);
-						}
-						break;
-					case 58: // Prayer
-						if (player.getTemporaryAttributtes().remove("leveledUp[5]") != Boolean.TRUE) {
-							skillMenu = 7;
-							player.getVarsManager().sendVar(965, 7);
-						} else {
-							lvlupSkill = 5;
-							player.getVarsManager().sendVar(1230, 60);
-						}
-						break;
-					case 71: // Magic
-						if (player.getTemporaryAttributtes().remove("leveledUp[6]") != Boolean.TRUE) {
-							skillMenu = 4;
-							player.getVarsManager().sendVar(965, 4);
-						} else {
-							lvlupSkill = 6;
-							player.getVarsManager().sendVar(1230, 33);
-						}
-						break;
-					case 84: // Runecrafting
-						if (player.getTemporaryAttributtes().remove("leveledUp[20]") != Boolean.TRUE) {
-							skillMenu = 12;
-							player.getVarsManager().sendVar(965, 12);
-						} else {
-							lvlupSkill = 20;
-							player.getVarsManager().sendVar(1230, 100);
-						}
-						break;
-					case 102: // Construction
-						skillMenu = 22;
-						if (player.getTemporaryAttributtes().remove("leveledUp[21]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 22);
-						} else {
-							lvlupSkill = 21;
-							player.getVarsManager().sendVar(1230, 698);
-						}
-						break;
-					case 145: // Hitpoints
-						skillMenu = 6;
-						if (player.getTemporaryAttributtes().remove("leveledUp[3]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 6);
-						} else {
-							lvlupSkill = 3;
-							player.getVarsManager().sendVar(1230, 50);
-						}
-						break;
-					case 15: // Agility
-						skillMenu = 8;
-						if (player.getTemporaryAttributtes().remove("leveledUp[16]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 8);
-						} else {
-							lvlupSkill = 16;
-							player.getVarsManager().sendVar(1230, 65);
-						}
-						break;
-					case 28: // Herblore
-						skillMenu = 9;
-						if (player.getTemporaryAttributtes().remove("leveledUp[15]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 9);
-						} else {
-							lvlupSkill = 15;
-							player.getVarsManager().sendVar(1230, 75);
-						}
-						break;
-					case 46: // Thieving
-						skillMenu = 10;
-						if (player.getTemporaryAttributtes().remove("leveledUp[17]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 10);
-						} else {
-							lvlupSkill = 17;
-							player.getVarsManager().sendVar(1230, 80);
-						}
-						break;
-					case 64: // Crafting
-						skillMenu = 11;
-						if (player.getTemporaryAttributtes().remove("leveledUp[12]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 11);
-						} else {
-							lvlupSkill = 12;
-							player.getVarsManager().sendVar(1230, 90);
-						}
-						break;
-					case 77: // Fletching
-						skillMenu = 19;
-						if (player.getTemporaryAttributtes().remove("leveledUp[9]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 19);
-						} else {
-							lvlupSkill = 9;
-							player.getVarsManager().sendVar(1230, 665);
-						}
-						break;
-					case 90: // Slayer
-						skillMenu = 20;
-						if (player.getTemporaryAttributtes().remove("leveledUp[18]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 20);
-						} else {
-							lvlupSkill = 18;
-							player.getVarsManager().sendVar(1230, 673);
-						}
-						break;
-					case 108: // Hunter
-						skillMenu = 23;
-						if (player.getTemporaryAttributtes().remove("leveledUp[22]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 23);
-						} else {
-							lvlupSkill = 22;
-							player.getVarsManager().sendVar(1230, 689);
-						}
-						break;
-					case 140: // Mining
-						skillMenu = 13;
-						if (player.getTemporaryAttributtes().remove("leveledUp[14]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 13);
-						} else {
-							lvlupSkill = 14;
-							player.getVarsManager().sendVar(1230, 110);
-						}
-						break;
-					case 135: // Smithing
-						skillMenu = 14;
-						if (player.getTemporaryAttributtes().remove("leveledUp[13]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 14);
-						} else {
-							lvlupSkill = 13;
-							player.getVarsManager().sendVar(1230, 115);
-						}
-						break;
-					case 34: // Fishing
-						skillMenu = 15;
-						if (player.getTemporaryAttributtes().remove("leveledUp[10]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 15);
-						} else {
-							lvlupSkill = 10;
-							player.getVarsManager().sendVar(1230, 120);
-						}
-						break;
-					case 52: // Cooking
-						skillMenu = 16;
-						if (player.getTemporaryAttributtes().remove("leveledUp[7]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 16);
-						} else {
-							lvlupSkill = 7;
-							player.getVarsManager().sendVar(1230, 641);
-						}
-						break;
-					case 130: // Firemaking
-						skillMenu = 17;
-						if (player.getTemporaryAttributtes().remove("leveledUp[11]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 17);
-						} else {
-							lvlupSkill = 11;
-							player.getVarsManager().sendVar(1230, 649);
-						}
-						break;
-					case 125: // Woodcutting
-						skillMenu = 18;
-						if (player.getTemporaryAttributtes().remove("leveledUp[8]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 18);
-						} else {
-							lvlupSkill = 8;
-							player.getVarsManager().sendVar(1230, 660);
-						}
-						break;
-					case 96: // Farming
-						skillMenu = 21;
-						if (player.getTemporaryAttributtes().remove("leveledUp[19]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 21);
-						} else {
-							lvlupSkill = 19;
-							player.getVarsManager().sendVar(1230, 681);
-						}
-						break;
-					case 114: // Summoning
-						skillMenu = 24;
-						if (player.getTemporaryAttributtes().remove("leveledUp[23]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 24);
-						} else {
-							lvlupSkill = 23;
-							player.getVarsManager().sendVar(1230, 705);
-						}
-						break;
-					case 120: // Dung
-						skillMenu = 25;
-						if (player.getTemporaryAttributtes().remove("leveledUp[24]") != Boolean.TRUE) {
-							player.getVarsManager().sendVar(965, 25);
-						} else {
-							lvlupSkill = 24;
-							player.getVarsManager().sendVar(1230, 705);
-						}
-						break;
+		} else if (interfaceId == 320) {
+			int lvlupSkill = -1;
+			int skillMenu = -1;
+			switch (componentId) {
+			case 150: // Attack
+				skillMenu = 1;
+				lvlupSkill = 0;
+				if (player.getTemporaryAttributtes().remove("leveledUp[0]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 1);
+				} else {
+					player.getVarsManager().sendVar(1230, 10);
 				}
-				if (skillMenu != -1) {
-					if (packetId == WorldPacketsDecoder.ACTION_BUTTON2_PACKET) {
-						player.stopAll();
-						Magic.sendCommandTeleportSpell(player, EconomyManager.SKILL_TELES[lvlupSkill]);
-					} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON1_PACKET) {
-						player.stopAll();
-						//	openSkillGuide(player);
-						player.getInterfaceManager().sendInterface(Skills.isFlashOn(player, lvlupSkill) ?
-								741 : 499);
-						Skills.switchFlash(player, lvlupSkill, false);
-						if (skillMenu != -1)
-							player.getTemporaryAttributtes().put("skillMenu", skillMenu);
-					} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON3_PACKET) {
-						player.getPackets().sendInputIntegerScript("Set level target:");
-						player.getTemporaryAttributtes().remove(Key.SET_XP_TARGET);
-						player.getTemporaryAttributtes().put(Key.SET_LEVEL_TARGET, lvlupSkill);
-					} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON4_PACKET) {
-						player.getPackets().sendInputIntegerScript("Set xp target:");
-						player.getTemporaryAttributtes().remove(Key.SET_LEVEL_TARGET);
-						player.getTemporaryAttributtes().put(Key.SET_XP_TARGET, lvlupSkill);
-					} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON5_PACKET)
-						player.getSkills().resetTarget(lvlupSkill);
+				break;
+			case 9: // Strength
+				skillMenu = 2;
+				lvlupSkill = 2;
+				if (player.getTemporaryAttributtes().remove("leveledUp[2]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 2);
+				} else {
+
+					player.getVarsManager().sendVar(1230, 20);
 				}
+				break;
+			case 22: // Defence
+				skillMenu = 5;
+				lvlupSkill = 1;
+				if (player.getTemporaryAttributtes().remove("leveledUp[1]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 5);
+				} else {
+					player.getVarsManager().sendVar(1230, 40);
+				}
+				break;
+			case 40: // Ranged
+				skillMenu = 3;
+				lvlupSkill = 4;
+				if (player.getTemporaryAttributtes().remove("leveledUp[4]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 3);
+				} else {
+					player.getVarsManager().sendVar(1230, 30);
+				}
+				break;
+			case 58: // Prayer
+				skillMenu = 7;
+				lvlupSkill = 5;
+				if (player.getTemporaryAttributtes().remove("leveledUp[5]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 7);
+				} else {
+					player.getVarsManager().sendVar(1230, 60);
+				}
+				break;
+			case 71: // Magic
+				skillMenu = 4;
+				lvlupSkill = 6;
+				if (player.getTemporaryAttributtes().remove("leveledUp[6]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 4);
+				} else {
+					player.getVarsManager().sendVar(1230, 33);
+				}
+				break;
+			case 84: // Runecrafting
+				skillMenu = 12;
+				lvlupSkill = 20;
+				if (player.getTemporaryAttributtes().remove("leveledUp[20]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 12);
+				} else {
+					player.getVarsManager().sendVar(1230, 100);
+				}
+				break;
+			case 102: // Construction
+				skillMenu = 22;
+				lvlupSkill = Skills.CONSTRUCTION;
+				if (player.getTemporaryAttributtes().remove("leveledUp[22]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 22);
+				} else {
+					player.getVarsManager().sendVar(1230, 698);
+				}
+				break;
+			case 145: // Hitpoints
+				skillMenu = 6;
+				lvlupSkill = 3;
+				if (player.getTemporaryAttributtes().remove("leveledUp[3]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 6);
+				} else {
+					player.getVarsManager().sendVar(1230, 50);
+				}
+				break;
+			case 15: // Agility
+				skillMenu = 8;
+				lvlupSkill = 16;
+				if (player.getTemporaryAttributtes().remove("leveledUp[16]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 8);
+				} else {
+					player.getVarsManager().sendVar(1230, 65);
+				}
+				break;
+			case 28: // Herblore
+				skillMenu = 9;
+				lvlupSkill = 15;
+				if (player.getTemporaryAttributtes().remove("leveledUp[15]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 9);
+				} else {
+					player.getVarsManager().sendVar(1230, 75);
+				}
+				break;
+			case 46: // Thieving
+				skillMenu = 10;
+				lvlupSkill = 17;
+				if (player.getTemporaryAttributtes().remove("leveledUp[17]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 10);
+				} else {
+					player.getVarsManager().sendVar(1230, 80);
+				}
+				break;
+			case 64: // Crafting
+				skillMenu = 11;
+				lvlupSkill = 12;
+				if (player.getTemporaryAttributtes().remove("leveledUp[12]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 11);
+				} else {
+					player.getVarsManager().sendVar(1230, 90);
+				}
+				break;
+			case 77: // Fletching
+				skillMenu = 19;
+				lvlupSkill = 9;
+				if (player.getTemporaryAttributtes().remove("leveledUp[9]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 19);
+				} else {
+					player.getVarsManager().sendVar(1230, 665);
+				}
+				break;
+			case 90: // Slayer
+				skillMenu = 20;
+				lvlupSkill = 18;
+				if (player.getTemporaryAttributtes().remove("leveledUp[18]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 20);
+				} else {
+					player.getVarsManager().sendVar(1230, 673);
+				}
+				break;
+			case 108: // Hunter
+				skillMenu = 23;
+				lvlupSkill = Skills.HUNTER;
+				if (player.getTemporaryAttributtes().remove("leveledUp[21]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 23);
+				} else {
+					player.getVarsManager().sendVar(1230, 689);
+				}
+				break;
+			case 140: // Mining
+				skillMenu = 13;
+				lvlupSkill = 14;
+				if (player.getTemporaryAttributtes().remove("leveledUp[14]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 13);
+				} else {
+					player.getVarsManager().sendVar(1230, 110);
+				}
+				break;
+			case 135: // Smithing
+				skillMenu = 14;
+				lvlupSkill = 13;
+				if (player.getTemporaryAttributtes().remove("leveledUp[13]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 14);
+				} else {
+					player.getVarsManager().sendVar(1230, 115);
+				}
+				break;
+			case 34: // Fishing
+				skillMenu = 15;
+				lvlupSkill = 10;
+				if (player.getTemporaryAttributtes().remove("leveledUp[10]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 15);
+				} else {
+					player.getVarsManager().sendVar(1230, 120);
+				}
+				break;
+			case 52: // Cooking
+				skillMenu = 16;
+				lvlupSkill = 7;
+				if (player.getTemporaryAttributtes().remove("leveledUp[7]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 16);
+				} else {
+					player.getVarsManager().sendVar(1230, 641);
+				}
+				break;
+			case 130: // Firemaking
+				skillMenu = 17;
+				lvlupSkill = 11;
+				if (player.getTemporaryAttributtes().remove("leveledUp[11]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 17);
+				} else {
+
+					player.getVarsManager().sendVar(1230, 649);
+				}
+				break;
+			case 125: // Woodcutting
+				skillMenu = 18;
+				lvlupSkill = 8;
+				if (player.getTemporaryAttributtes().remove("leveledUp[8]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 18);
+				} else {
+					player.getVarsManager().sendVar(1230, 660);
+				}
+				break;
+			case 96: // Farming
+				skillMenu = 21;
+				lvlupSkill = 19;
+				if (player.getTemporaryAttributtes().remove("leveledUp[19]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 21);
+				} else {
+					player.getVarsManager().sendVar(1230, 681);
+				}
+				break;
+			case 114: // Summoning
+				skillMenu = 24;
+				lvlupSkill = 23;
+				if (player.getTemporaryAttributtes().remove("leveledUp[23]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 24);
+				} else {
+					player.getVarsManager().sendVar(1230, 705);
+				}
+				break;
+			case 120: // Dung
+				skillMenu = 25;
+				lvlupSkill = 24;
+				if (player.getTemporaryAttributtes().remove("leveledUp[24]") != Boolean.TRUE) {
+					player.getVarsManager().sendVar(965, 25);
+				} else {
+					player.getVarsManager().sendVar(1230, 705);
+				}
+				break;
+			}
+			if (skillMenu != -1) {
+				if (packetId == WorldPacketsDecoder.ACTION_BUTTON2_PACKET) {
+					player.stopAll();
+					Magic.sendCommandTeleportSpell(player, EconomyManager.SKILL_TELES[lvlupSkill]);
+				} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON1_PACKET) {
+					player.stopAll();
+				//	openSkillGuide(player);
+					  player.getInterfaceManager().sendInterface( Skills.isFlashOn(player, lvlupSkill) ?
+					  741 : 499);
+					Skills.switchFlash(player, lvlupSkill, false);
+					if (skillMenu != -1)
+						player.getTemporaryAttributtes().put("skillMenu", skillMenu);
+				} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON3_PACKET) {
+					player.getPackets().sendInputIntegerScript("Set level target:");
+					player.getTemporaryAttributtes().remove(Key.SET_XP_TARGET);
+					player.getTemporaryAttributtes().put(Key.SET_LEVEL_TARGET, lvlupSkill);
+				} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON4_PACKET) {
+					player.getPackets().sendInputIntegerScript("Set xp target:");
+					player.getTemporaryAttributtes().remove(Key.SET_LEVEL_TARGET);
+					player.getTemporaryAttributtes().put(Key.SET_XP_TARGET, lvlupSkill);
+				} else if (packetId == WorldPacketsDecoder.ACTION_BUTTON5_PACKET) 
+					player.getSkills().resetTarget(lvlupSkill);
+				
 			}
 		} else if (interfaceId == 1218) {
 			if ((componentId >= 33 && componentId <= 55) || componentId == 120 || componentId == 151 || componentId == 189)

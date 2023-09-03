@@ -170,6 +170,7 @@ public class OsrsEquipment {
 		for (int i = 0; i < AURAS.length; i++)
 			if (item.contains(AURAS[i].toLowerCase()))
 				return Equipment.SLOT_AURA;
+		
 		if (config.getId() >= Settings._685_ITEM_OFFSET) 
 			return getItemSlot(ItemConfig.forID(config.getId() - Settings._685_ITEM_OFFSET));
 		

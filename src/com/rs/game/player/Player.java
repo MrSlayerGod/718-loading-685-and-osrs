@@ -82,13 +82,7 @@ public class Player extends Entity {
 
 	private static final long serialVersionUID = 2011932556974180375L;
 
-	public boolean hasMessageHovers;
-
-	private transient boolean boostedLeech;
-
-
-
-	// transient stuff
+    // transient stuff
 	private transient String username;
 	private transient Session session;
 	private transient long clientLoadedMapRegion;
@@ -609,7 +603,6 @@ public class Player extends Entity {
 		geManager = new GrandExchangeManager();
 		slayerManager = new SlayerManager();
 		squealOfFortune = new SquealOfFortune();
-
 		treasureTrailsManager = new TreasureTrailsManager();
 		coalTrucksManager = new CoalTrucksManager();
 		dungManager = new DungManager();
@@ -622,7 +615,6 @@ public class Player extends Entity {
 		keybinds = new Keybinds();
 		runEnergy = 100;
 		allowChatEffects = true;
-		hasMessageHovers = true;
 		mouseButtons = true;
 		profanityFilter = false; // true on rs
 		acceptAid = true; // default false on rs
@@ -804,14 +796,7 @@ public class Player extends Entity {
 		appearence.generateAppearenceData();
 		setSkullTimer();
 	}
-
-	public boolean isBoostedLeech() {
-		return boostedLeech;
-	}
-
-	public void setBoostedLeech(boolean boostedLeech) {
-		this.boostedLeech = boostedLeech;
-	}
+	
 	public void setGalvekSkull() {
 		skullDelay = 3000; // 30minutes
 		skullId = 1;

@@ -1,6 +1,5 @@
 package com.rs.game;
 
-import com.rs.Settings;
 import com.rs.cache.loaders.AnimationDefinitions;
 
 public final class Animation {
@@ -23,14 +22,6 @@ public final class Animation {
 			if(ids[i] == 65535) //quick fix to anim now using bigsmart instead of short. jsut to be safe, remove this once 100% sure
 				ids[i] = -1;
 		this.speed = speed;
-	}
-
-	public static Animation createOSRS(int id) {
-		return createOSRS(id, 0);
-	}
-
-	public static Animation createOSRS(int id, int speed) {
-		return new Animation(id == -1 ? -1 : id + Settings.OSRS_ANIMATIONS_OFFSET, speed);
 	}
 
 	public int[] getIds() {
